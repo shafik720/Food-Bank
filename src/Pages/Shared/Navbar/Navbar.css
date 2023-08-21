@@ -1,9 +1,14 @@
 
 
+.menu-div{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+}
 .menubar{
-    border: 1px solid green;
     padding: 20px 20px;
-    color: #2a2a2a;
+    color: white;
 }
 
 
