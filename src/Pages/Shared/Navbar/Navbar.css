@@ -1,0 +1,17 @@
+
+
+.menubar{
+    border: 1px solid green;
+    padding: 20px 20px;
+    color: #2a2a2a;
+}
+
+
+.menu-link ul{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 20px;
+    font-size: 25px;
+    font-weight: 500;
+}
