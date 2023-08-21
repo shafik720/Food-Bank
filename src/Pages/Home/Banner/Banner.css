@@ -1,0 +1,8 @@
+
+.banner-div{
+    text-align: center;
+    background: url('https://i.ibb.co/mC7PwGh/Banner-img.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
