@@ -12,11 +12,59 @@ const Navbar = () => {
                             <li href="#" className='menu-parent'>Home
                                 <div className="mini-menu">
                                     <span className='mini-menu-dot'><p>. . .</p> </span>
+                                    <div className="sub-menu">
+                                        <div className="">
+                                            <ul>
+                                                <li>Demo Link  </li>
+                                                <li>Demo Link</li>
+                                                <li>Demo Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
                                 </div>
                             </li>
-                            <li href="#">About</li>
-                            <li href="#">Menu</li>
-                            <li href="#">Restaurant</li>
+                            <li href="#"  className='menu-parent'>About
+                                <div className="mini-menu">
+                                    <span className='mini-menu-dot'><p>. . .</p> </span>
+                                    <div className="sub-menu">
+                                        <div className="">
+                                            <ul>
+                                                <li>Demo Link  </li>
+                                                <li>Demo Link</li>
+                                                <li>Demo Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li href="#"  className='menu-parent'>Menu
+                                <div className="mini-menu">
+                                    <span className='mini-menu-dot'><p>. . .</p> </span>
+                                    <div className="sub-menu">
+                                        <div className="">
+                                            <ul>
+                                                <li>Demo Link  </li>
+                                                <li>Demo Link</li>
+                                                <li>Demo Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li href="#"  className='menu-parent'>
+                                <div className="mini-menu">
+                                    <span className='mini-menu-dot'><p>. . .</p> </span>
+                                    <div className="sub-menu">
+                                        <div className="">
+                                            <ul>
+                                                <li>Demo Link  </li>
+                                                <li>Demo Link</li>
+                                                <li>Demo Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                            Restaurant</li>
                             <li href="#">Services</li>
                         </ul>
 

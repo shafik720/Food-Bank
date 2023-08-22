@@ -1,18 +1,17 @@
-
-
-.menu-div{
+.menu-div {
     position: absolute;
     top: 0;
     left: 0;
     right: 0;
 }
-.menubar{
+
+.menubar {
     padding: 20px 20px;
     color: white;
 }
 
 
-.menu-link ul{
+.menu-link ul {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -20,29 +19,74 @@
     font-size: 20px;
     font-weight: 500;
 }
+
 .menu-link ul li {
     cursor: pointer;
 }
 
-.menu-parent{
+
+/* --- Sub Menu --- */
+.menu-parent {
     position: relative;
 }
-.mini-menu{
+
+.mini-menu {
     position: absolute;
     top: 50%;
     left: 50%;
     transform: translateX(-50%);
 }
-.mini-menu-dot{
+
+.mini-menu-dot {
     font-weight: 600;
     font-size: 22px;
-    /* opacity: 0; */
     transition: all 0.3s ease;
 }
-.mini-menu-dot p{
+
+.mini-menu-dot p {
     scale: 0 1;
     transition: all 0.3s ease;
 }
-.menu-parent:hover .mini-menu-dot p{
+
+.menu-parent:hover .mini-menu-dot p {
     scale: 1 1;
+}
+
+/* --- Sub Menu --- */
+.sub-menu {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    top: 95px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    opacity: 0;
+}
+.menu-parent:hover .sub-menu{
+    top: 35px;
+    opacity: 1;
+}
+.sub-menu div {
+    position: relative;
+    background: white;
+    color: #2a2a2a;
+    padding: 25px 5px;
+    min-width: 200px;
+    text-align: center;
+    border-radius: 5px;
+
+}
+
+.sub-menu div ul {
+    display: flex;
+    flex-direction: column;
+
+}
+
+.sub-menu ul li {
+    width: 100%;
+    transition: all 0.1s;
+}
+.sub-menu ul li:hover {
+    color: #02af80;
 }
