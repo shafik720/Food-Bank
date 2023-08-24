@@ -61,10 +61,12 @@
     border-radius: 5px;
     transition: all 0.3s ease;
     opacity: 0;
+    visibility: hidden;
 }
 .menu-parent:hover .sub-menu{
     top: 35px;
     opacity: 1;
+    visibility: visible;
 }
 .sub-menu div {
     position: relative;
