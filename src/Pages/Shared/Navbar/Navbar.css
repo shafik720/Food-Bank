@@ -92,3 +92,37 @@
 .sub-menu ul li:hover {
     color: #02af80;
 }
+
+
+
+/*-------------------------------------------------------------------------- 
+Media query
+---------------------------------------------------------------------------*/
+
+/*--------------------------------------------------------------------------
+For mobile:  
+---------------------------------------------------------------------------*/
+@media only screen and (max-width:480px){
+    .menu-link ul{
+        flex-direction: column;
+    }
+    .menubar{
+        background: rgba(42, 42, 42, 0.481) !important;
+        position: fixed;
+        border: 3px solid white;
+        top: 5%;
+        left: 5%;
+        right: 5%;
+        bottom: 5%;
+    }
+}
+
+/*--------------------------------------------------- 
+For ipads, tablet:  
+---------------------------------------------------*/
+@media only screen and (min-width:481px) and (max-width:768px) {}
+
+/*-----------------------------------------
+ For Small screen, laptop:  
+-----------------------------------------*/
+@media only screen and (min-width:769px) and (max-width:1024px) {}
