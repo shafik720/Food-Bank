@@ -93,6 +93,9 @@
     color: #02af80;
 }
 
+.mobile-menu-icons{
+    display: none;
+}
 
 
 /*-------------------------------------------------------------------------- 
@@ -124,7 +127,7 @@ For mobile:
         border: 2px solid white;
         border-radius: 2px;
         position: fixed;
-        top:   3%;
+        top:   2%;
         right: 4%;
         transition: all 0.3s ease;
         z-index: 60;
@@ -137,14 +140,26 @@ For mobile:
     }
     .mobile-menu-icons.active{
         transform: rotate(180deg);
-        top:   7%;
-        right: 8%;
+        top:   6%;
+        right: 7%;
         scale: 0.9;
         border-radius: 50%;
+    }
+    .menuImgTwo{
+        display: none;
+    }
+    .mobile-menu-icons.active .menuImgOne{
+        /* opacity: 0; */
+        display: none;
+    }
+    .mobile-menu-icons.active .menuImgTwo{
+        /* opacity: 0; */
+        display: block;
     }
     .mobile-menu-icons img{
         width: 90%;
         cursor: pointer;
+        transition: all 0.3s ease;
     }
 }
 

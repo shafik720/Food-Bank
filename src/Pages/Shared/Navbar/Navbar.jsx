@@ -1,5 +1,6 @@
 import './Navbar.css';
 import menu1 from '../../../assets/img/menu.png';
+import menu2 from '../../../assets/img/x.png';
 import { useState } from 'react';
 
 const Navbar = () => {
@@ -9,7 +10,8 @@ const Navbar = () => {
     return (
         <div className='menu-div px-5'>
             <div className={`mobile-menu-icons ${isActive ? 'active' : ''}`}>
-                <img src={menu1} alt="" draggable onClick={()=>setIsActive(!isActive)} />
+                <img src={menu1} alt="" draggable onClick={()=>setIsActive(!isActive)} className="menuImgOne" />
+                <img src={menu2} alt="" draggable onClick={()=>setIsActive(!isActive)} className="menuImgTwo" />
             </div>
             <div className={`menubar max-md:flex-col max-md:justify-center flex justify-between items-center ${isActive ? 'active' : ''}`}>
                 <div className="menubar-left">
