@@ -113,7 +113,12 @@ For mobile:
         top: -500px;
         left: 5%;
         right: 5%;
-        /* bottom: 5%; */
+        transition: all 0.3s ease;
+        z-index: 50;
+    }
+    .menubar.active{
+        top: 5%;
+        bottom: 5%;
     }
     .mobile-menu-icons{
         border: 2px solid white;
@@ -121,11 +126,24 @@ For mobile:
         position: fixed;
         top:   3%;
         right: 4%;
-
+        transition: all 0.3s ease;
+        z-index: 60;
+        width: 35px;
+        height: 35px;
+        padding: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mobile-menu-icons.active{
+        transform: rotate(180deg);
+        top:   7%;
+        right: 8%;
+        scale: 0.9;
+        border-radius: 50%;
     }
     .mobile-menu-icons img{
-        width: 35px;
-        padding: 5px;
+        width: 90%;
         cursor: pointer;
     }
 }
