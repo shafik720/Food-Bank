@@ -3,10 +3,9 @@ import searchIcon from '../../../assets/img/search.png';
 
 const Banner = () => {
     return (
-        <div className="banner-div py-48 px-10 flex justify-between items-start">
+        <div className="banner-div py-48 px-5 lg:px-10 lg:flex justify-between items-start ">
 
-            <div className="text-left ">
-
+            <div className="lg:text-left text-center ">
                 <div className="banner-title text-white mb-7">
                     <h1 className='text-5xl font-bold '>Heart is <br /> Where the Food is</h1>
                     <div className="my-6 text-xl font-medium">
@@ -17,10 +16,10 @@ const Banner = () => {
 
                 {/* --- Search Box ('Join' Component from DaisyUI) --- */}
 
-                <div className="join text-white ">
+                <div className="join text-white flex flex-col md:flex-row">
                     <div>
                         <div>
-                            <input className="input input-bordered join-item bg-transparent border-white rounded-s-full w-80" placeholder="Search" />
+                            <input className="input input-bordered join-item bg-transparent border-white rounded-s-full lg:w-80" placeholder="Search" />
                         </div>
                     </div>
                     <select className="select select-bordered join-item bg-transparent border-white ">
