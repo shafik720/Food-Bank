@@ -16,20 +16,20 @@ const Banner = () => {
 
                 {/* --- Search Box ('Join' Component from DaisyUI) --- */}
 
-                <div className="join text-white flex flex-col md:flex-row">
+                <div className="join text-white flex flex-col mx-auto  md:flex-row md:w-2/3 lg:w-auto">
                     <div>
                         <div>
-                            <input className="input input-bordered join-item bg-transparent border-white rounded-s-full lg:w-80" placeholder="Search" />
+                            <input className="input input-bordered md:join-item bg-transparent  border-white  border-4 md:rounded-s-full md:border-2 md:w-80 md:my-0 w-3/4 rounded-full my-5" placeholder="Search" />
                         </div>
                     </div>
-                    <select className="select select-bordered join-item bg-transparent border-white ">
+                    <select className="select select-bordered md:join-item bg-transparent border-white border-4 w-3/4  rounded-full mx-auto md:rounded-s-full md:border-2 md:my-0 ">
                         <option disabled selected>City</option>
                         <option className='text-black font-bold'>New York</option>
                         <option className='text-black font-bold'>California</option>
                         <option className='text-black font-bold'>Washington</option>
                     </select>
-                    <div className="indicator">
-                        <button className="btn join-item rounded-r-full"> <img src={searchIcon} alt="" width={'20px'} /> </button>
+                    <div className="indicator mx-auto mt-5 w-3/4 md:mt-0 ">
+                        <button className="btn md:join-item md:rounded-r-full rounded-full w-full"> <img src={searchIcon} alt="" width={'20px'} /> </button>
                     </div>
                 </div>
             </div>
