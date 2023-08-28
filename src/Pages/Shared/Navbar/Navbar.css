@@ -110,7 +110,7 @@ For mobile:
         flex-direction: column;
     }
     .menubar{
-        background: rgba(42, 42, 42, 0.834) !important;
+        background: rgba(47, 64, 71, 0.94)   ;
         position: fixed;
         border: 3px solid white;
         top: -500px;
