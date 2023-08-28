@@ -19,10 +19,10 @@ const Banner = () => {
                 <div className="join text-white flex flex-col mx-auto  md:flex-row md:w-2/3 lg:w-auto">
                     <div>
                         <div>
-                            <input className="input input-bordered md:join-item bg-transparent  border-white  border-4 md:rounded-s-full md:border-2 md:w-80 md:my-0 w-3/4 rounded-full my-5" placeholder="Search" />
+                            <input className="input input-bordered md:join-item bg-transparent  border-white  border-4 md:rounded-s-full md:border-2 md:w-80 md:my-0 w-3/4 rounded-full my-5 md:border-e-2" placeholder="Search" />
                         </div>
                     </div>
-                    <select className="select select-bordered md:join-item bg-transparent border-white border-4 w-3/4  rounded-full mx-auto md:rounded-s-full md:border-2 md:my-0 ">
+                    <select className="select select-bordered md:join-item bg-transparent border-white border-4 w-3/4  rounded-full mx-auto md:rounded-s-full md:border-2 md:my-0  md:border-s-0 ">
                         <option disabled selected>City</option>
                         <option className='text-black font-bold'>New York</option>
                         <option className='text-black font-bold'>California</option>
@@ -32,6 +32,9 @@ const Banner = () => {
                         <button className="btn md:join-item md:rounded-r-full rounded-full w-full"> <img src={searchIcon} alt="" width={'20px'} /> </button>
                     </div>
                 </div>
+
+                {/* --- Search Box Ends Here --- */}
+                
             </div>
             <div className=""></div>
         </div>
