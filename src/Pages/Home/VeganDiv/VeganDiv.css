@@ -1,0 +1,12 @@
+
+
+.vegan-div-parent{
+    font-family: 'Signika', sans-serif;
+}
+.vegan-div{
+    background-image: url('https://i.ibb.co/nC406hv/home-vegan-hero-1.jpg');
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 150px 0;
+}
