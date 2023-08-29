@@ -10,7 +10,7 @@ const WeeklyReviewer = () => {
             <div className="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5">
 
                 {/* --- Single Review Card --- */}
-                <div className="review-card shadow-2xl rounded-lg px-3 py-8 flex flex-col justify-center items-center font-semibold border-4 ">
+                <div className="review-card  rounded-lg px-3 py-6 flex flex-col justify-center items-center font-semibold border-4 ">
                     <img className='w-32 h-32 rounded-full mb-5' src="https://i.ibb.co/WnM0kHd/albert-dera-ILip77-Sbm-OE-unsplash-2.jpg" alt="" />
                     <div className="stats-div  text-center ">
                         <div className="">
@@ -38,25 +38,10 @@ const WeeklyReviewer = () => {
                                 <p>Reviews</p>
                             </div>
                         </div>
+
+                        <button className='btn mt-7 btn-neutral hover:bg-transparent hover:text-black'>View Profile</button>
                     </div>
 
-                    {/* <table className='w-full'>
-                        <tr className=''>
-                            <td className='border'>Weekly Authenticity : </td>
-                            <td className='border w-full'>
-                                <progress className="progress progress-secondary " value="70" max="100"></progress>
-
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>Alltime Authenticity : </td>
-                            <td>80</td>
-                        </tr>
-                        <tr>
-                            <td>Total Reviews : </td>
-                            <td>500</td>
-                        </tr>
-                    </table> */}
                 </div>
             </div>
         </div>
