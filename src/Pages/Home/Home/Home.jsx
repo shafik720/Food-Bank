@@ -1,3 +1,4 @@
+import { Helmet } from "react-helmet-async";
 import Banner from "../Banner/Banner";
 import CategoryDiv from "../CategoryDiv/CategoryDiv";
 import VeganDiv from "../VeganDiv/VeganDiv";
@@ -7,6 +8,10 @@ import WeeklyReviewer from "../WeeklyReviewer/WeeklyReviewer";
 const Home = () => {
     return (
         <div>
+            <Helmet>
+                <title>Home Page</title>
+                <link rel="icon" type="image/svg+xml" href="/vite.svg" />
+            </Helmet>
             <Banner></Banner>
             <CategoryDiv></CategoryDiv>
             <VeganDiv></VeganDiv>
