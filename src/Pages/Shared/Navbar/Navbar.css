@@ -89,7 +89,7 @@
     width: 100%;
     transition: all 0.1s;
 }
-.sub-menu ul li:hover {
+.sub-menu ul a:hover {
     color: #02af80;
 }
 

@@ -1,6 +1,5 @@
 import Banner from "../Banner/Banner";
 import CategoryDiv from "../CategoryDiv/CategoryDiv";
-import RecentFood from "../RecentFood/RecentFood";
 import VeganDiv from "../VeganDiv/VeganDiv";
 import WeeklyReviewer from "../WeeklyReviewer/WeeklyReviewer";
 
