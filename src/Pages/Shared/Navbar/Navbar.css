@@ -97,6 +97,35 @@
     display: none;
 }
 
+.profile-button{
+    border: 2px solid white;
+    padding: 3px 20px;
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    /* background: transparent; */
+}
+.span1{
+    transition: all 0.3s ease;
+    background: transparent;
+}
+.span2{
+    position: absolute;
+    background: white;
+    top: -100%;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    transition: all 0.3s ease;
+    color: #02af80;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.profile-button:hover .span2{
+    top: 0;
+    /* z-index: -10; */
+}
 
 /*-------------------------------------------------------------------------- 
 Media query
