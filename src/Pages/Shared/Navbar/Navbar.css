@@ -39,7 +39,7 @@
 
 .mini-menu-dot {
     font-weight: 600;
-    font-size: 22px;
+    font-size: 20px;
     transition: all 0.3s ease;
 }
 
@@ -82,7 +82,6 @@
 .sub-menu div ul {
     display: flex;
     flex-direction: column;
-
 }
 
 .sub-menu ul li {
