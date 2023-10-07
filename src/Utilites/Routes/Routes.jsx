@@ -1,11 +1,10 @@
-import {
-  createBrowserRouter
-} from "react-router-dom";
+import {createBrowserRouter} from "react-router-dom";
 import Main from "../../Layout/Main/Main";
 import Home from "../../Pages/Home/Home/Home";
 import Shop from "../../Pages/Shop/Shop";
 import Signup from "../../Pages/Profile/Signup/Signup";
 import Login from "../../Pages/Profile/Login/Login";
+import PublicRoute from "../PublicRoute/PublicRoute";
 
 export const Routes = createBrowserRouter([
   {
@@ -18,7 +17,7 @@ export const Routes = createBrowserRouter([
       },
       {
         path: '/signup',
-        element: <Signup></Signup>
+        element: <PublicRoute><Signup></Signup></PublicRoute>
       },
       {
         path: '/login',
