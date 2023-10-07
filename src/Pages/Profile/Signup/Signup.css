@@ -6,3 +6,9 @@
     background-size: cover;
     min-height: 100vh;
 }
+
+.disabledButton{
+    background: #239df0 !important;
+    border: none;
+    transition: all 0.8s ease;
+}
