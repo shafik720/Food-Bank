@@ -2,7 +2,8 @@ import { Helmet } from "react-helmet-async";
 import './Signup.css';
 import {auth} from "../../../Utilites/Firebase Auth/firebase.inti";
 import {useCreateUserWithEmailAndPassword} from 'react-firebase-hooks/auth';
-import { useState } from "react";
+import { useEffect, useState } from "react";
+import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 
 const Signup = () => {
     const [email, setEmail] = useState('') ;
@@ -17,6 +18,18 @@ const Signup = () => {
         e.preventDefault();
         createUserWithEmailAndPassword(email, password);
     }
+    useEffect(()=>{
+        if(!error && user?.user?.email){
+            console.log(user);
+            successMsg('Account Has Been Created !');
+        }
+        if(loading){
+            console.log(loading);
+        }
+        if(error){
+            errorMsg(error.message);
+        }
+    },[user, loading, error])
     return (
         <div className="signup-div flex flex-col justify-center items-center md:py-40  ">
             <Helmet>
