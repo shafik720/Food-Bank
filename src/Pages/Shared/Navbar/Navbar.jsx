@@ -88,10 +88,25 @@ const Navbar = () => {
                             <Link to="/shop">Shop</Link>
 
                             {/* --- Profile Menu Section --- */}
-                            <div  className='profile-button'>
+                            <div  className={`${(!user && 'profile-button')}`}>
                                 {loading && <ClipLoader color="white" size={15} />}
+
                                 {(!user && !loading) && <Link to="/signup"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
-                                {user && <div><h2>Profile</h2></div>}
+
+                                {user && <li href="#" className='menu-parent'>
+                                <div className="mini-menu">
+                                    <span className='mini-menu-dot'><p>. . .</p> </span>
+                                    <div className="sub-menu">
+                                        <div className="">
+                                            <ul>
+                                                <li>Demo Link  </li>
+                                                <li>Demo Link</li>
+                                                <li>Demo Link</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                Profile</li>}
                             </div>
                         </ul>
                     </div>
