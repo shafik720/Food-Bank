@@ -3,11 +3,18 @@ import menu1 from '../../../assets/img/menu.png';
 import menu2 from '../../../assets/img/x.png';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
+import { useAuthState } from 'react-firebase-hooks/auth';
+import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
+import { ClipLoader } from 'react-spinners';
 
 const Navbar = () => {
 
     // --- to ensure if the user has clicked the menu button in 'Mobile View'
     const [isActive, setIsActive] = useState(false);
+
+    // --- checking if the user is signed in 
+    const [user, loading, error] = useAuthState(auth);
+    console.log(user);
 
     return (
         <div className='menu-div px-5'>
@@ -79,9 +86,14 @@ const Navbar = () => {
                                 </div>
                                 Restaurant</li>
                             <Link to="/shop">Shop</Link>
-                            <Link to="/signup" className='profile-button'> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>
-                        </ul>
 
+                            {/* --- Profile Menu Section --- */}
+                            <div  className='profile-button'>
+                                {loading && <ClipLoader color="white" size={15} />}
+                                {(!user && !loading) && <Link to="/signup"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
+                                {user && <div><h2>Profile</h2></div>}
+                            </div>
+                        </ul>
                     </div>
                 </div>
             </div>
