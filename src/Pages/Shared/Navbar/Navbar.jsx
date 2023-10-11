@@ -3,9 +3,10 @@ import menu1 from '../../../assets/img/menu.png';
 import menu2 from '../../../assets/img/x.png';
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import { useAuthState } from 'react-firebase-hooks/auth';
+import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
 import { ClipLoader } from 'react-spinners';
+import { successMsg } from '../../../Utilites/PopupMsg/PopupMsg';
 
 const Navbar = () => {
 
@@ -14,7 +15,10 @@ const Navbar = () => {
 
     // --- checking if the user is signed in 
     const [user, loading, error] = useAuthState(auth);
-    console.log(user);
+
+    // --- sign out function
+    const [signOut, loading2, error2] = useSignOut(auth);
+    
 
     return (
         <div className='menu-div px-5'>
@@ -93,14 +97,19 @@ const Navbar = () => {
 
                                 {(!user && !loading) && <Link to="/signup"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
 
-                                {user && <li href="#" className='menu-parent border-slate-100 px-4 border-2 rounded-2xl'>
+                                {user && <li href="#" className='menu-parent border-slate-100 px-4 border-2 rounded-2xl hover:bg-white hover:text-slate-600 '>
                                 <div className="mini-menu">  
                                 <span className='mini-menu-dot'><p className='pt-5 w-20 text-transparent'>. . .</p> </span>                          
                                     <div className="sub-menu">
                                         <div className='profile-submenu'>
                                             <ul>
                                                 <li className='hover:text-blue-700'>Profile</li>
-                                                <li className='text-red-600 hover:text-blue-800'>Log Out</li>
+                                                <li onClick={async ()=>{
+                                                    const success = await signOut();
+                                                    if(success){
+                                                        successMsg('You are sign out');
+                                                    }
+                                                }} className='text-red-600 hover:text-blue-800'>Log Out</li>
                                             </ul>
                                         </div>
                                     </div>
