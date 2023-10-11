@@ -93,20 +93,20 @@ const Navbar = () => {
 
                                 {(!user && !loading) && <Link to="/signup"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
 
-                                {user && <li href="#" className='menu-parent'>
-                                <div className="mini-menu">
-                                    <span className='mini-menu-dot'><p>. . .</p> </span>
+                                {user && <li href="#" className='menu-parent border-slate-100 px-4 border-2 rounded-2xl'>
+                                <div className="mini-menu">  
+                                <span className='mini-menu-dot'><p className='pt-5 w-20 text-transparent'>. . .</p> </span>                          
                                     <div className="sub-menu">
-                                        <div className="">
+                                        <div className='profile-submenu'>
                                             <ul>
-                                                <li>Demo Link  </li>
-                                                <li>Demo Link</li>
-                                                <li>Demo Link</li>
+                                                <li className='hover:text-blue-700'>Profile</li>
+                                                <li className='text-red-600 hover:text-blue-800'>Log Out</li>
                                             </ul>
                                         </div>
                                     </div>
                                 </div>
-                                Profile</li>}
+                                Account</li>}
+                                
                             </div>
                         </ul>
                     </div>
