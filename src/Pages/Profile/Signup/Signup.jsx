@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import './Signup.css';
 import {auth} from "../../../Utilites/Firebase Auth/firebase.inti";
-import {useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import {useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGithub, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useEffect, useState } from "react";
 import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 import { ClipLoader } from "react-spinners";
@@ -31,6 +31,9 @@ const Signup = () => {
 
     // --- facebook login
     const [signInWithFacebook] = useSignInWithFacebook(auth);
+
+    // --- github login
+    const [signInWithGithub, user3, loading3, error3] = useSignInWithGithub(auth);
 
 
     useEffect(()=>{
@@ -87,7 +90,9 @@ const Signup = () => {
                 <div onClick={()=>signInWithFacebook()} className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center  cursor-pointer bg-white">
                     <img style={{ width: '42px' }} src="https://i.ibb.co/tB9HhgW/facebook.png" alt="" />
                 </div>
-                <div className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center cursor-pointer bg-white">
+
+                {/* --- Github Sign in */}
+                <div onClick={()=>signInWithGithub()} className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center cursor-pointer bg-white">
                     <img style={{ width: '42px' }} src="https://i.ibb.co/xsmwmm7/github.png" alt="" />
                 </div>
             </div>
