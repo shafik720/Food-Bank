@@ -37,7 +37,7 @@ const Signup = () => {
 
 
     useEffect(()=>{
-        if(!error && user?.user?.email){
+        if((!error && user?.user?.email)){
             console.log(user);
             successMsg('Account Has Been Created !');
         }
@@ -49,12 +49,6 @@ const Signup = () => {
         }
         if(user2){
             console.log(user2);
-        }
-        if(loading3){
-            console.log('Github Loading');
-        }
-        if(error3){
-            console.log(error3);
         }
     },[user, loading, error, user2, loading2, error2, user3, loading3, error3])
     return (

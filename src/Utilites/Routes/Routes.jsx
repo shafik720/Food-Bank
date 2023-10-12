@@ -5,6 +5,7 @@ import Shop from "../../Pages/Shop/Shop";
 import Signup from "../../Pages/Profile/Signup/Signup";
 import Login from "../../Pages/Profile/Login/Login";
 import PublicRoute from "../PublicRoute/PublicRoute";
+import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 
 export const Routes = createBrowserRouter([
   {
@@ -28,6 +29,10 @@ export const Routes = createBrowserRouter([
         path: '/shop',
         element: <Shop></Shop>
       }
-    ]
+    ],    
+  },
+  {
+    path : '*',
+    element : <ErrorPage></ErrorPage>
   },
 ]);
