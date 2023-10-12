@@ -10,7 +10,7 @@ const Home = () => {
         <div>
             <Helmet>
                 <title>Home Page</title>
-                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/RcYJVv5/plate-1.png" />
+                <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/NtS7rNm/cutlery.png" />
             </Helmet>
             <Banner></Banner>
             <CategoryDiv></CategoryDiv>

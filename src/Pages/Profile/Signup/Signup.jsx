@@ -1,7 +1,7 @@
 import { Helmet } from "react-helmet-async";
 import './Signup.css';
 import {auth} from "../../../Utilites/Firebase Auth/firebase.inti";
-import {useCreateUserWithEmailAndPassword, useSignInWithGoogle} from 'react-firebase-hooks/auth';
+import {useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithGoogle} from 'react-firebase-hooks/auth';
 import { useEffect, useState } from "react";
 import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 import { ClipLoader } from "react-spinners";
@@ -23,11 +23,15 @@ const Signup = () => {
         createUserWithEmailAndPassword(email, password);
     }
 
-    // --- creating a new user with google account using react firebase hook
+    // --- google login
     const [signInWithGoogle, user2, loading2, error2] = useSignInWithGoogle(auth);
     const handleGoogleSignIn = () => {
         signInWithGoogle();
     }
+
+    // --- facebook login
+    const [signInWithFacebook] = useSignInWithFacebook(auth);
+
 
     useEffect(()=>{
         if(!error && user?.user?.email){
@@ -80,7 +84,7 @@ const Signup = () => {
                 </div>
 
                 {/* --- facebook sign in --- */}
-                <div className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center  cursor-pointer bg-white">
+                <div onClick={()=>signInWithFacebook()} className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center  cursor-pointer bg-white">
                     <img style={{ width: '42px' }} src="https://i.ibb.co/tB9HhgW/facebook.png" alt="" />
                 </div>
                 <div className="social-icons border border-slate-50 w-14 h-14 flex justify-center items-center cursor-pointer bg-white">
