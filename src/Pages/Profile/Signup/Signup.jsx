@@ -44,10 +44,19 @@ const Signup = () => {
         if(loading){
             console.log(loading);
         }
-        if(error){
-            errorMsg(error.message);
+        if(error || error2 || error3){
+            errorMsg(error?.message || error2?.message || error3?.message);
         }
-    },[user, loading, error])
+        if(user2){
+            console.log(user2);
+        }
+        if(loading3){
+            console.log('Github Loading');
+        }
+        if(error3){
+            console.log(error3);
+        }
+    },[user, loading, error, user2, loading2, error2, user3, loading3, error3])
     return (
         <div className="signup-div flex flex-col justify-center items-center md:py-40  ">
             <Helmet>
