@@ -95,7 +95,7 @@ const Navbar = () => {
                             <div  className={`${(!user && 'profile-button')}`}>
                                 {loading && <ClipLoader color="white" size={15} />}
 
-                                {(!user && !loading) && <Link to="/signup"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
+                                {(!user && !loading) && <Link to="/login"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
 
                                 {user && <li href="#" className='menu-parent border-slate-100 px-4 border-2 rounded-2xl hover:bg-white hover:text-slate-600 '>
                                 <div className="mini-menu">  

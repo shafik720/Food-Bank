@@ -5,6 +5,7 @@ import {useCreateUserWithEmailAndPassword, useSignInWithFacebook, useSignInWithG
 import { useEffect, useState } from "react";
 import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 import { ClipLoader } from "react-spinners";
+import { updateProfile } from "firebase/auth";
 
 const Signup = () => {
     const [email, setEmail] = useState('') ;
@@ -15,12 +16,18 @@ const Signup = () => {
     // --- Loading spinner
     const spinner = <ClipLoader color="white" size={25} />
 
-    // --- creating a new user with email & password using react firebase hook
+    // --- sign up with email & password using react firebase hook
     const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
 
     const handleCreateUser = (e) => {
         e.preventDefault();
-        createUserWithEmailAndPassword(email, password);
+        if(password.length < 6){
+            errorMsg('Password must be more than 6 character')
+        }else if(password !== rePassword){
+            errorMsg('Confirmed Password is not matched !')
+        }else{
+            createUserWithEmailAndPassword(email, password);
+        }
     }
 
     // --- google login
@@ -40,6 +47,9 @@ const Signup = () => {
         if((!error && user?.user?.email)){
             console.log(user);
             successMsg('Account Has Been Created !');
+
+            // --- This will add the name of the user after account is created
+            updateProfile(auth.currentUser, {displayName:name, photoURL:'https://example.com/jane-q-user/profile.jpg'}).then(()=>{}).catch(error => console.log(error))
         }
         if(loading){
             console.log(loading);
