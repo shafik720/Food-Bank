@@ -6,6 +6,7 @@ import { useEffect, useState } from "react";
 import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 import { ClipLoader } from "react-spinners";
 import { updateProfile } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
 
 const Signup = () => {
     const [email, setEmail] = useState('') ;
@@ -15,6 +16,9 @@ const Signup = () => {
 
     // --- Loading spinner
     const spinner = <ClipLoader color="white" size={25} />
+
+    // --- navigate to login page
+    const navigate = useNavigate();
 
     // --- sign up with email & password using react firebase hook
     const [createUserWithEmailAndPassword,user,loading,error,] = useCreateUserWithEmailAndPassword(auth);
@@ -88,6 +92,8 @@ const Signup = () => {
                     {/* --- Submit Button --- */}
                     <button disabled={loading} type="submit" className={`${!loading ? 'btn btn-success' : 'disabledButton btn'} ` } > {loading ? spinner : 'Sign Up'} </button>
                 </form>
+
+            <p className="mt-7">Already have an account ? <span onClick={()=>navigate('/login')} className="cursor-pointer text-blue-500" draggable>Sign In</span> here </p>
             </div>
             <h2 className="text-white my-8">Or  Sign In Using</h2>
 

@@ -4,6 +4,7 @@ import { Helmet } from "react-helmet-async";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 import { errorMsg, successMsg } from "../../../Utilites/PopupMsg/PopupMsg";
 import { ClipLoader } from "react-spinners";
+import { useNavigate } from "react-router-dom";
 
 const Login = () => {
 
@@ -12,6 +13,10 @@ const Login = () => {
 
     // --- Loading spinner
     const spinner = <ClipLoader color="white" size={25} />
+
+    // --- going to sign up page
+    const navigate = useNavigate();
+
 
     // --- Login functionality
     const [
@@ -76,6 +81,7 @@ const Login = () => {
                 {/* --- Submit Button --- */}
                 <button disabled={loading} type="submit" className={`${!loading ? 'btn btn-success' : 'disabledButton btn'} ` } > {loading ? spinner : 'Login'} </button>
             </form>
+            <p className="mt-7">Don't have an account ? <span onClick={()=>navigate('/signup')} className="cursor-pointer text-blue-500" draggable>Sign Up</span> here </p>
         </div>
         <h2 className="text-white my-8">Or  Sign In Using</h2>
 
