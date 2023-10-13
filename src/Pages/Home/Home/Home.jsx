@@ -9,7 +9,7 @@ const Home = () => {
     return (
         <div>
             <Helmet>
-                <title>Home Page</title>
+                <title>Food Bank</title>
                 <link rel="icon" type="image/svg+xml" href="https://i.ibb.co/NtS7rNm/cutlery.png" />
             </Helmet>
             <Banner></Banner>

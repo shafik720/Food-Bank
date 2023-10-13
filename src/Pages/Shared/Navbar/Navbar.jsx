@@ -2,7 +2,7 @@ import './Navbar.css';
 import menu1 from '../../../assets/img/menu.png';
 import menu2 from '../../../assets/img/x.png';
 import { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
 import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
 import { ClipLoader } from 'react-spinners';
@@ -19,7 +19,8 @@ const Navbar = () => {
     // --- sign out function
     const [signOut, loading2, error2] = useSignOut(auth);
     
-
+    const location = useLocation();
+    
     return (
         <div className='menu-div px-5'>
 
@@ -31,7 +32,7 @@ const Navbar = () => {
             {/* --- Mobile Menu Icons end --- */}
 
             {/* --------------- Menubar starts here --------------- */}
-            <div className={`menubar max-md:flex-col max-md:justify-center flex justify-between items-center ${isActive ? 'active' : ''}`}>
+            <div className={`menubar max-md:flex-col max-md:justify-center flex justify-between items-center ${isActive ? 'active' : ''} ${location.pathname.includes('/profile') && 'menubar-black-text'}`}>
 
                 {/* --- Navbar Logo on Leftside --- */}
                 <div className="menubar-left">
@@ -41,7 +42,7 @@ const Navbar = () => {
                 {/* --- Menu Items --- */}
                 <div className="menubar-right">
                     <div className="menu-link">
-                        <ul>
+                        <ul className={`${location.pathname.includes('/profile') && 'submenu-black-text'}`}>
                             <Link to="/" className='menu-parent'>Home
                                 <div className="mini-menu">
                                     <span className='mini-menu-dot'><p>. . .</p> </span>
@@ -103,7 +104,7 @@ const Navbar = () => {
                                     <div className="sub-menu">
                                         <div className='profile-submenu'>
                                             <ul>
-                                                <li className='hover:text-blue-700'>Profile</li>
+                                                <li className='hover:text-blue-700'><Link to='profile'>Profile</Link></li>
                                                 <li onClick={async ()=>{
                                                     const success = await signOut();
                                                     if(success){

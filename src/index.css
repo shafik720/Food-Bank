@@ -8,8 +8,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Signika:wght@300;400;500;600;700&display=swap');
 
 /* --- Common Css Styles --- */
+
 body {
     font-family: 'Ubuntu', sans-serif;
+    /* background: black;
+    min-height: 100vh; */
 }
 
 .weekly-review-div, .vegan-div-parent{

@@ -9,7 +9,13 @@
     padding: 20px 20px;
     color: white;
 }
+.menubar-black-text{
+    color: #2a2a2a;
+}
 
+.submenu-black-text .menu-parent .mini-menu .sub-menu div{
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+}
 
 .menu-link ul {
     display: flex;
@@ -68,6 +74,7 @@
     opacity: 0;
     visibility: hidden;
 }
+
 .menu-parent:hover .sub-menu{
     top: 35px;
     opacity: 1;
