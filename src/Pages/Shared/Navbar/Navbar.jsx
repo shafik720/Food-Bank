@@ -36,7 +36,7 @@ const Navbar = () => {
 
                 {/* --- Navbar Logo on Leftside --- */}
                 <div className="menubar-left">
-                    <h2 className="text-4xl font-bold max-md:hidden ">Food Lab</h2>
+                    <Link to='/'><h2 className="text-4xl font-bold max-md:hidden ">Food Lab</h2></Link>
                 </div>
 
                 {/* --- Menu Items --- */}
@@ -104,7 +104,7 @@ const Navbar = () => {
                                     <div className="sub-menu">
                                         <div className='profile-submenu'>
                                             <ul>
-                                                <li className='hover:text-blue-700'><Link to='profile'>Profile</Link></li>
+                                                <li className='hover:text-blue-700'><Link to='/profile'>Profile</Link></li>
                                                 <li onClick={async ()=>{
                                                     const success = await signOut();
                                                     if(success){

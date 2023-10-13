@@ -1,0 +1,9 @@
+
+
+.profile-navbar-div{
+    position: absolute;
+    border: 2px solid black;
+    top: 50%;
+    left: 20px;
+    transform: translateY(-50%);
+}
