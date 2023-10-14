@@ -2,23 +2,26 @@
 
 .profile-navbar-div{
     position: absolute;
-    border: 2px solid slategray;
+    border: 3px solid #2a2a2a;
     border-radius: 5px;
     top: 50%;
     left: 20px;
     transform: translateY(-50%);
     font-weight: 600;
-    color: slategray;
+    color: white;
     padding: 20px 10px;
-    font-size: 16px;
-    background: #c6dce5;
+    font-size: 12px;
+    font-weight: 600;
+    /* background: #91C8E4; */
+    background: url("https://i.ibb.co/mC7PwGh/Banner-img.jpg")right fixed no-repeat;
+    width: 100px;
+    text-align: center;
 }
 .profile-navbar-div ul li{
     margin: 40px 0;
     position: relative;
-    /* border: 2px solid ; */
     height: 60px;
-    width: 60px;
+    /* width: 60px; */
     display: flex;
     justify-content: center;
     align-items: center;
@@ -28,21 +31,21 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.8s ease;
+    /* transition: all 0.1s ease; */
 }
 .menu-inner-span{
     display: flex;
     justify-content: center;
     align-items: center;
-    transition: all 0.8s ease;
+    /* transition: all 0.1s ease; */
 }
 
-.menu-active .menu-outer-span{
+.active .menu-outer-span{
     padding: 10px;
     border: 2px solid white;
     border-radius: 50%;
     position: absolute;
-    left: 40px;
+    left: 10px;
     width:  80px;
     height: 80px;
     display: flex;
@@ -50,7 +53,30 @@
     align-items: center;
     background: white;
 }
-.menu-active .menu-inner-span{
+.active .menu-text{
+    position: absolute;
+    left: 90px;
+    color: #2a2a2a;
+}
+.special-radius img{
+    background: #4BD698;
+    border-radius: 50%;
+}
+.special-radius2 img{
+    background: orange;
+    padding: 5px;
+    border-radius: 50%;
+}
+.active .special-radius img{
+    background: white;
+    border-radius: 50%;
+}
+.active .special-radius2 img{
+    background: white;
+    padding: 0px;
+    border-radius: 50%;
+}
+.active .menu-inner-span{
     border: 2px solid grey;
     border-radius: 50%;
     width:  60px;
@@ -58,15 +84,11 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    background: #c6dce5;
+    /* background: crimson; */
 }
 .menu-inner-span img{
     width: 60%;
 }
 .menu-text{
-    transition: all 0.8s ease;
-}
-.menu-active .menu-text{
-    position: absolute;
-    left: 120px;
+    /* transition: all 0.1s ease; */
 }

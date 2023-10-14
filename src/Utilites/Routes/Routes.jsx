@@ -8,6 +8,8 @@ import PublicRoute from "../PublicRoute/PublicRoute";
 import ErrorPage from "../../Pages/Shared/ErrorPage/ErrorPage";
 import Profile from "../../Pages/Profile/Profile";
 import ProfileInfo from "../../Pages/Profile/ProfileInfo.jsx/ProfileInfo";
+import EditProfile from "../../Pages/Profile/EditProfile/EditProfile";
+import FoodReview from "../../Pages/Profile/FoodReview/FoodReview";
 
 export const Routes = createBrowserRouter([
   {
@@ -39,6 +41,14 @@ export const Routes = createBrowserRouter([
       {
         path : '/profile/profileInfo',
         element : <ProfileInfo></ProfileInfo>
+      },
+      {
+        path : '/profile/addReview',
+        element : <FoodReview></FoodReview>
+      },
+      {
+        path : '/profile/editProfile',
+        element : <EditProfile></EditProfile>
       }
     ]
   },
