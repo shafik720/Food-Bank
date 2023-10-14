@@ -10,6 +10,7 @@ import Profile from "../../Pages/Profile/Profile";
 import ProfileInfo from "../../Pages/Profile/ProfileInfo.jsx/ProfileInfo";
 import EditProfile from "../../Pages/Profile/EditProfile/EditProfile";
 import FoodReview from "../../Pages/Profile/FoodReview/FoodReview";
+import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 export const Routes = createBrowserRouter([
   {
@@ -36,8 +37,12 @@ export const Routes = createBrowserRouter([
   },
   {
     path: '/profile',
-    element: <Profile></Profile>,
+    element: <PrivateRoute><Profile></Profile></PrivateRoute>,
     children : [
+      {
+        path : '/profile',
+        element : <ProfileInfo></ProfileInfo>
+      },
       {
         path : '/profile/profileInfo',
         element : <ProfileInfo></ProfileInfo>

@@ -16,6 +16,7 @@
     background: url("https://i.ibb.co/mC7PwGh/Banner-img.jpg")right fixed no-repeat;
     width: 100px;
     text-align: center;
+    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
 }
 .profile-navbar-div ul li{
     margin: 40px 0;
@@ -25,6 +26,12 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+.profile-navbar-div ul li a{
+    transition: all 0.3s ease;
+}
+.profile-navbar-div ul li a:hover{
+    color: crimson;
 }
 
 .menu-outer-span{
@@ -38,6 +45,9 @@
     justify-content: center;
     align-items: center;
     /* transition: all 0.1s ease; */
+}
+.menu-inner-span img{
+    border-radius: 50%;
 }
 
 .active .menu-outer-span{
