@@ -51,7 +51,7 @@
 }
 
 .active .menu-outer-span{
-    padding: 10px;
+    /* padding: 10px; */
     border: 2px solid white;
     border-radius: 50%;
     position: absolute;
@@ -94,6 +94,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    padding: 0;
     /* background: crimson; */
 }
 .menu-inner-span img{
