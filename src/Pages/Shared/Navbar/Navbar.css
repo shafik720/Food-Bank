@@ -48,19 +48,22 @@
     font-weight: 600;
     font-size: 20px;
     transition: all 0.3s ease;
+    /* display: none; */
 }
 
 .mini-menu-dot p {
     scale: 0 1;
     transition: all 0.3s ease;
     width: 80px;
-    height: 70px;
+    height: 0px;
     /* border: 1px solid; */
     text-align: center;
+    /* display: none; */
 }
-
 .menu-parent:hover .mini-menu-dot p {
     scale: 1 1;
+    height: 45px;
+    display: block;
 }
 
 /* --- Sub Menu --- */
