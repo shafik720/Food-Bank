@@ -98,7 +98,7 @@ const Navbar = () => {
 
                                 {(!user && !loading) && <Link to="/login"> <span className='span1'>Login / Signup</span>  <span className='span2'>Login / Signup</span></Link>}
 
-                                {user && <li href="#" className='menu-parent border-slate-100 px-4 border-2 rounded-2xl hover:bg-white hover:text-slate-600 '>
+                                {user && <li href="#" className={`menu-parent border-slate-100 px-4 border-2 rounded-2xl  ${location.pathname.includes('/profile') ? 'hover:bg-slate-700 hover:text-white' : 'hover:text-slate-700 hover:bg-white'}`}>
                                 <div className="mini-menu">  
                                 <span className='mini-menu-dot'><p className='pt-5 w-20 text-transparent'>. . .</p> </span>                          
                                     <div className="sub-menu">

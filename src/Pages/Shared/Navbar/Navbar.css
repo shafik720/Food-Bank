@@ -53,7 +53,7 @@
 
 .mini-menu-dot p {
     scale: 0 1;
-    transition: all 0.3s ease;
+    transition: all 0.5s ease;
     width: 80px;
     height: 0px;
     /* border: 1px solid; */
