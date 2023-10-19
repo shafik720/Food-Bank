@@ -6,9 +6,9 @@ const ProfileInfo = () => {
     const [user, loading, error] = useAuthState(auth);
     console.log(user);
     return (
-        <div className="profile-info-div flex flex-col mt-28 items-center min-h-screen md:ms-44 md:me-10">
-            <h2 className="text-2xl font-semibold pb-4">Profile information</h2>
-            <hr />
+        <div className="profile-info-div ">
+            <h2 className="text-2xl font-semibold pb-4 text-center">Profile information</h2>
+            <hr className="horizontal-for-profile-section" />
             <div className="grid md:grid-cols-3 gap-5 lg:grid-cols-3">
                 <div className="food-review-profile flex flex-col justify-center items-center gap-1 border border-4 border-blue-950 p-5 rounded-lg cursor-pointer hover:shadow-[0_10px_15px_rgba(0,0,0,0.5)]">
                     <img className="w-16" src="https://i.ibb.co/mvW2BFg/diet.png" alt="" />

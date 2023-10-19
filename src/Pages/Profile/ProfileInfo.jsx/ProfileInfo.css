@@ -1,7 +1,7 @@
 
-.profile-info-div hr {
+.horizontal-for-profile-section {
     border: none;
     border-top: 3px solid #4BD698;
     margin-bottom: 50px;
-    width: 70%;
+    width: 100%;
 	}

@@ -12,7 +12,9 @@ const Profile = () => {
             </Helmet>
             <Navbar></Navbar>
             <ProfileNavbar></ProfileNavbar>
-            <Outlet></Outlet>
+            <div className="flex flex-col mt-28 items-center min-h-screen md:ms-44 md:me-10">
+                <Outlet></Outlet>
+            </div>
         </div>
     );
 };
