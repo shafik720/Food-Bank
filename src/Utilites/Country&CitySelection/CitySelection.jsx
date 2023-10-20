@@ -4,12 +4,12 @@ const CitySelection = () => {
     const options = { method: 'GET' };
     const [city, setCity] = useState('');
 
-    useEffect(() => {
-        fetch('')
-            .then(response => response.json())
-            // .then(response => console.log(response))
-            .catch(err => console.error(err));
-    }, [])
+    // useEffect(() => {
+    //     fetch('')
+    //         .then(response => response.json())
+    //         // .then(response => console.log(response))
+    //         .catch(err => console.error(err));
+    // }, [])
     return (
         <div className="mt-10">
             <label htmlFor="city" className="font-semibold text-blue-700">Select a City:</label>

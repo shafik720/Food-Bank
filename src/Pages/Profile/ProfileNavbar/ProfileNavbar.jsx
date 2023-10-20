@@ -7,7 +7,7 @@ const ProfileNavbar = () => {
 
     // --- getting user information
     const [user,loading, error] = useAuthState(auth) ; 
-    console.log(user.photoURL);
+    
     return (
         <div className="profile-navbar-div">
             <ul>
