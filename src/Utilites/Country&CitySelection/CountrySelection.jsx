@@ -3,7 +3,6 @@ import { useGetAllCountryQuery } from "../../Redux/Features/country/countryApi";
 import { ClipLoader } from "react-spinners";
 
 const CountrySelection = ({ onCountryChange }) => {
-    const [countries, setCountries] = useState([]);
 
     // --- get all country list from mongodb with redux
     const { data, isLoading, isError, error, isSuccess } = useGetAllCountryQuery();
@@ -13,13 +12,13 @@ const CountrySelection = ({ onCountryChange }) => {
 
     // --- when fetching-data process is in loading state
     if (isLoading && !isError) {
-        content = <div className="loader-in-middle"><ClipLoader color="black" size={120} /></div>
+        content = <div className=""><ClipLoader color="black" size={35} /></div>
     }
 
     // --- when there is a error happened while fetching-data 
     if (!isLoading && isError) {
         console.log(error);
-        content = <div className="loader-in-middle text-red-600 font-bold">
+        content = <div className=" text-red-600 font-bold">
             {error.error}
         </div>;
     }
@@ -34,7 +33,7 @@ const CountrySelection = ({ onCountryChange }) => {
             >
                 <option value="0" >Select Country</option>
                 {data.map((country) => (
-                    <option key={country.country_id} value={country.country_name}>
+                    <option key={country.country_id} value={country.country_id}>
                         {country.country_name}
                     </option>
                 ))}
@@ -54,9 +53,7 @@ const CountrySelection = ({ onCountryChange }) => {
     //         });
     // }, []);
     // console.log(countries);
-    return (
-        content
-    );
+    return (content);
 };
 
 export default CountrySelection;

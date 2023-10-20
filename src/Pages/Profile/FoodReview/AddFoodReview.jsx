@@ -5,7 +5,7 @@ import StateSelection from "../../../Utilites/Country&CitySelection/StateSelecti
 
 
 const AddFoodReview = () => {
-    const [selectedCountry, setSelectedCountry] = useState("");
+    const [selectedCountry, setSelectedCountry] = useState(1);
 
     function handleSubmit(e) {
         fetch('http://localhost:4000/add', {
@@ -25,7 +25,7 @@ const AddFoodReview = () => {
 
             <div className="container mx-auto lg:w-60 p-4">
                 <CountrySelection onCountryChange={setSelectedCountry} />
-                <StateSelection />
+                <StateSelection countryId={selectedCountry} />
                 <CitySelection />
                 <button className="btn mt-7 btn-primary" onClick={handleSubmit}>Submit</button>
                 {/* <CitySelector selectedCountry={selectedCountry} /> */}
