@@ -5,7 +5,7 @@ import StateSelection from "../../../Utilites/Country&CitySelection/StateSelecti
 
 
 const AddFoodReview = () => {
-    const [selectedCountry, setSelectedCountry] = useState(1);
+    const [selectedCountry, setSelectedCountry] = useState(0);
 
     function handleSubmit(e) {
         fetch('http://localhost:4000/add', {

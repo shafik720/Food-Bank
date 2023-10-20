@@ -1,9 +1,21 @@
 import { ClipLoader } from "react-spinners";
 import { useGetCountryStateQuery } from "../../Redux/Features/state/stateApi";
+import { useEffect, useState } from "react";
 
-const StateSelection = ({countryId}) => {
+const StateSelection = ({ countryId }) => {
+    // --- disabling state option menu if user doesn't select any country
+    const [option, setOption] = useState(true);
+
+    useEffect(() => {
+        if (countryId == 0) {
+            setOption(true);
+        }else{
+            setOption(false);
+        }
+    }, [countryId])
+
     // --- get all 'country state' list from mongodb with redux according to the country
-    const { data, isLoading, isError, error, isSuccess } = useGetCountryStateQuery(countryId || 18);
+    const { data, isLoading, isError, error, isSuccess } = useGetCountryStateQuery(countryId);
 
     // --- deciding what to render while fetching data from server with redux
     let content = null;
@@ -21,22 +33,24 @@ const StateSelection = ({countryId}) => {
         </div>;
     }
 
+
     if (!isLoading && !isError && isSuccess) {
-        console.log(data);
+        // console.log(data);
         content = <div className="mt-10">
-        <label htmlFor="city" className="font-semibold text-blue-700">Select a State:</label>
-        <select
-            id="city"
-            className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
-        >
-            <option value="0">Select State</option>
-            {data.map((state) => (
+            <label htmlFor="city" className="font-semibold text-blue-700">Select a State:</label>
+            <select
+                id="city"
+                disabled={option}
+                className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
+            >
+                <option value="0">Select State</option>
+                {data.map((state) => (
                     <option key={state._id} value={state.state_id}>
                         {state.state_name}
                     </option>
                 ))}
-        </select>
-    </div>
+            </select>
+        </div>
     }
     return (content);
 };

@@ -42,17 +42,6 @@ const CountrySelection = ({ onCountryChange }) => {
 
     }
 
-    // useEffect(() => {
-    //     fetch("http://localhost:4000/getCountry")
-    //         .then((response) => response.json())
-    //         .then((data) => {
-    //             // console.log(data[0].data);
-    //             // data.sort((a, b) => a.name.common.localeCompare(b.name.common));
-    //             let sortedCountry = data[0].data.sort((a, b) => a.country_name.localeCompare(b.country_name));
-    //             setCountries(sortedCountry);
-    //         });
-    // }, []);
-    // console.log(countries);
     return (content);
 };
 
