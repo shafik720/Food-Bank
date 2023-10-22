@@ -2,13 +2,14 @@ import { ClipLoader } from "react-spinners";
 import { useGetCountryStateQuery } from "../../Redux/Features/state/stateApi";
 import { useEffect, useState } from "react";
 
-const StateSelection = ({ countryId }) => {
+const StateSelection = ({ countryId, onStateChange }) => {
     // --- disabling state option menu if user doesn't select any country
     const [option, setOption] = useState(true);
 
     useEffect(() => {
         if (countryId == 0) {
             setOption(true);
+            onStateChange(0)
         }else{
             setOption(false);
         }
@@ -22,7 +23,7 @@ const StateSelection = ({ countryId }) => {
 
     // --- when fetching-data process is in loading state
     if (isLoading && !isError) {
-        content = <div className=""><ClipLoader color="black" size={35} /></div>
+        content = <div className="my-8"><ClipLoader color="black" size={35} /></div>
     }
 
     // --- when there is a error happened while fetching-data 
@@ -41,6 +42,7 @@ const StateSelection = ({ countryId }) => {
             <select
                 id="city"
                 disabled={option}
+                onChange={(e) => onStateChange(e.target.value)}
                 className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
             >
                 <option value="0">Select State</option>

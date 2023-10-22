@@ -12,7 +12,7 @@ const CountrySelection = ({ onCountryChange }) => {
 
     // --- when fetching-data process is in loading state
     if (isLoading && !isError) {
-        content = <div className=""><ClipLoader color="black" size={35} /></div>
+        content = <div className="my-8"><ClipLoader color="black" size={35} /></div>
     }
 
     // --- when there is a error happened while fetching-data 
