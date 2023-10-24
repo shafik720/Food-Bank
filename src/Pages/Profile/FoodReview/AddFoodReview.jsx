@@ -18,10 +18,34 @@ const AddFoodReview = () => {
                 <CountrySelection onCountryChange={setSelectedCountry} />
                 <StateSelection countryId={selectedCountry} onStateChange={setSelectedState} />
                 <CitySelection stateId={selectedState} />
+
+                {/* --- Select Restaurant Name --- */}
                 <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                     <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
                     <span>
-                        <input type="text" placeholder="Type here" className="input input-success w-full max-w-xs " />
+                        <input type="text" placeholder="Type Restaurant Name Here ..." className="input input-success w-full max-w-xs " />
+                    </span>
+                </div>
+
+                {/* --- Select Food Name --- */}
+                <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
+                    <p className="font-semibold text-slate-800 text-center">Food Name : </p>
+                    <span>
+                        <input type="text" placeholder="Type Food Name Here ... " className="input input-success w-full max-w-xs " />
+                    </span>
+                </div>
+
+                {/* --- Select Rating --- */}
+                <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
+                    <p className="font-semibold text-slate-800 text-center">Give Your Rating : </p>
+                    <span>
+                        <div className="rating rating-lg">
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400"  />
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
+                            <input type="radio" name="rating-4" className="mask mask-star-2 bg-orange-400" />
+                        </div>
                     </span>
                 </div>
             </div>
