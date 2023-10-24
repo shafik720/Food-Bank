@@ -9,11 +9,16 @@ const AddFoodReview = () => {
     const [selectedState, setSelectedState] = useState(0) ; 
     const [selectedCity, setSelectedCity] = useState(0) ;
 
+    const [restaurant, setRestaurant] = useState('');
+    const [foodname, setFoodname] = useState('');
+
     const handleReviewSubmit = (e) => {
         e.preventDefault();
         console.log('Country Id : ',selectedCountry);
         console.log('State Id : ',selectedState);
         console.log('City Id : ',selectedCity);
+        console.log('Restaurant Name : ', restaurant);
+        console.log('Food Name : ', foodname);
     }
 
     return (
@@ -31,7 +36,7 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
                         <span>
-                            <input required type="text" placeholder="Type Restaurant Name Here " className="input input-success w-full max-w-xs  rounded-sm" />
+                            <input onBlur={e => setRestaurant(e.target.value)} required type="text" placeholder="Type Restaurant Name Here " className="input input-success w-full max-w-xs  rounded-sm" />
                         </span>
                     </div>
 
@@ -39,7 +44,7 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Food Name : </p>
                         <span>
-                            <input required type="text" placeholder="Type Food Name Here  " className="input input-success w-full max-w-xs rounded-sm" />
+                            <input onBlur={e => setFoodname(e.target.value)} required type="text" placeholder="Type Food Name Here  " className="input input-success w-full max-w-xs rounded-sm" />
                         </span>
                     </div>
 
