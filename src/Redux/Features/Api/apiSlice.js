@@ -5,7 +5,7 @@ export const apiSlice = createApi({
     reducerPath : 'api' , 
     baseQuery : fetchBaseQuery({
         // baseUrl : import.meta.env.VITE_APP_REDUX_BASE_QUERY
-        baseUrl : 'http://localhost:4000/'
+        baseUrl : 'https://server-for-foodbank.vercel.app'
     }),
     tagTypes : [] , 
     endpoints : (builder) => ({}) 

@@ -23,7 +23,15 @@ const CountrySelection = ({ onCountryChange }) => {
         </div>;
     }
 
-    if (!isLoading && !isError && data.length > 0) {
+    useEffect(()=>{
+        fetch('https://restcountries.com/v3.1/all')
+        .then(res=>res.json())
+        // .then(data2=>console.log(data2))
+    },[])
+
+    if (!isLoading && !isError && data?.length > 0) {
+        // console.log(data);
+
         content = <div>
             <label htmlFor="country" className="font-semibold text-blue-700">Select a Country:</label>
             <select
@@ -33,7 +41,8 @@ const CountrySelection = ({ onCountryChange }) => {
             >
                 <option value="0" >Select Country</option>
                 {data.map((country) => (
-                    <option key={country.country_id} value={country.country_id}>
+                    <option className="selection-menu" key={country.country_id} value={country.country_id}>                        
+                        <img src="https://flagcdn.com/w320/uz.png" alt="" />
                         {country.country_name}
                     </option>
                 ))}
