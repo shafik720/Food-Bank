@@ -5,12 +5,15 @@ import StateSelection from "../../../Utilites/Country&CitySelection/StateSelecti
 
 
 const AddFoodReview = () => {
-    const [selectedCountry, setSelectedCountry] = useState(0);
-    const [selectedState, setSelectedState] = useState(0)
+    const [selectedCountry, setSelectedCountry] = useState(0) ;
+    const [selectedState, setSelectedState] = useState(0) ; 
+    const [selectedCity, setSelectedCity] = useState(0) ;
 
     const handleReviewSubmit = (e) => {
         e.preventDefault();
-        console.log(selectedCountry);
+        console.log('Country Id : ',selectedCountry);
+        console.log('State Id : ',selectedState);
+        console.log('City Id : ',selectedCity);
     }
 
     return (
@@ -22,7 +25,7 @@ const AddFoodReview = () => {
                 <form action="" onSubmit={handleReviewSubmit}>
                     <CountrySelection onCountryChange={setSelectedCountry} />
                     <StateSelection countryId={selectedCountry} onStateChange={setSelectedState} />
-                    <CitySelection stateId={selectedState} />
+                    <CitySelection stateId={selectedState} onCityChange={setSelectedCity} />
 
                     {/* --- Select Restaurant Name --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
