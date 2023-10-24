@@ -18,6 +18,12 @@ const AddFoodReview = () => {
                 <CountrySelection onCountryChange={setSelectedCountry} />
                 <StateSelection countryId={selectedCountry} onStateChange={setSelectedState} />
                 <CitySelection stateId={selectedState} />
+                <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
+                    <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
+                    <span>
+                        <input type="text" placeholder="Type here" className="input input-success w-full max-w-xs " />
+                    </span>
+                </div>
             </div>
         </div>
     );

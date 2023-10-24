@@ -31,7 +31,7 @@ const CountrySelection = ({ onCountryChange }) => {
     if (!isLoading && !isError && data?.length > 0) {
 
         content = <div className="country-selection-div lg:grid lg:grid-cols-2">
-            <label htmlFor="country" className="font-semibold text-slate-800  text-center">Select Country:</label>
+            <label htmlFor="country" className="font-semibold text-slate-800  text-center">Select Country :</label>
             <Select
                 className=" "
                 options={data.map((country) => ({
