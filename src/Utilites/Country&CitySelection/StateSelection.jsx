@@ -37,13 +37,13 @@ const StateSelection = ({ countryId, onStateChange }) => {
 
     if (!isLoading && !isError && isSuccess) {
         // console.log(data);
-        content = <div className="mt-10">
-            <label htmlFor="city" className="font-semibold text-blue-700">Select a State:</label>
+        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5">
+            <label htmlFor="city" className="font-semibold text-slate-800  text-center">Select a State:</label>
             <select
                 id="city"
                 disabled={option}
                 onChange={(e) => onStateChange(e.target.value)}
-                className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
+                className="block w-full p-2 bg-white border border-gray-300 rounded shadow"
             >
                 <option value="0">Select State</option>
                 {data.map((state) => (

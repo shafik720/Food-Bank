@@ -36,8 +36,8 @@ const CitySelection = ({ stateId }) => {
 
     if (!isLoading && !isError && isSuccess) {
         // console.log(data);
-        content = <div className="mt-10">
-            <label htmlFor="city" className="font-semibold text-blue-700">Select a City:</label>
+        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5">
+            <label htmlFor="city" className="font-semibold text-slate-800 text-center">Select a State:</label>
             <select
                 id="city"
                 disabled={option}
