@@ -1,6 +1,8 @@
 import { useEffect, useState } from "react";
 import { useGetAllCountryQuery } from "../../Redux/Features/country/countryApi";
 import { ClipLoader } from "react-spinners";
+import Select from 'react-select';
+
 
 const CountrySelection = ({ onCountryChange }) => {
 
@@ -23,30 +25,29 @@ const CountrySelection = ({ onCountryChange }) => {
         </div>;
     }
 
-    useEffect(()=>{
+    useEffect(() => {
         fetch('https://restcountries.com/v3.1/all')
-        .then(res=>res.json())
+            .then(res => res.json())
         // .then(data2=>console.log(data2))
-    },[])
+    }, [])
 
     if (!isLoading && !isError && data?.length > 0) {
-        // console.log(data);
+        console.log(data);
 
         content = <div>
             <label htmlFor="country" className="font-semibold text-blue-700">Select a Country:</label>
-            <select
-                id="country"
-                onChange={(e) => onCountryChange(e.target.value)}
-                className="block w-full p-2 my-3 bg-white border border-gray-300 rounded shadow"
-            >
-                <option value="0" >Select Country</option>
-                {data.map((country) => (
-                    <option className="selection-menu" key={country.country_id} value={country.country_id}>                        
-                        <img src="https://flagcdn.com/w320/uz.png" alt="" />
-                        {country.country_name}
-                    </option>
-                ))}
-            </select>
+            <Select
+                options={data.map((country) => ({
+                    value: country.country_id,
+                    label: (
+                        <div className="flex gap-2 justify-start items-center">
+                            <img className="w-5" src={`https://flagcdn.com/w320/${country.sortname.toLowerCase()}.png`} alt="" />
+                            {country.country_name}
+                        </div>
+                    ),
+                }))}
+                onChange={(selectedOption) => onCountryChange(selectedOption.value)}
+            />
         </div>
 
     }
