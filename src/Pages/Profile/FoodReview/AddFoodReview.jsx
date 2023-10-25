@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import CountrySelection from "../../../Utilites/Country&CitySelection/CountrySelection";
 import CitySelection from "../../../Utilites/Country&CitySelection/CitySelection";
 import StateSelection from "../../../Utilites/Country&CitySelection/StateSelection";
+import RatingImpression from "../../../Utilites/RatingImpression/RatingImpression";
 
 
 const AddFoodReview = () => {
@@ -17,20 +18,10 @@ const AddFoodReview = () => {
 
     // --- get the value of rating
     const [rating, setRating] = useState(5);
-    // const [ratingImpression, setRatingImpression] = useState('');
-    let ratingImpression = null
     const handleRating = (e) => {
         const selectedRating = parseInt(e.target.value);
         setRating(selectedRating)
     }
-    useEffect(() => {
-        if (rating == 5) {
-            // setRatingImpression('Best In Town');
-            ratingImpression = <div><p>'Best In Town'</p></div>
-        } else if (rating == 1) {            
-            ratingImpression = <div><p>Best In Town</p></div>
-        }
-    }, [rating])
 
     const handleReviewSubmit = (e) => {
                         e.preventDefault();
@@ -82,12 +73,14 @@ const AddFoodReview = () => {
                                         </div>
                                     </span>
                                 </div>
+
+                                {/* --- Rating impression --- */}
                                 <div className="lg:grid lg:grid-cols-2 justify-start items-center mt-8">
                                     <div></div>
                                     <div className="flex items-center">
-                                        {/* <span className="text-2xl font-bold  border border-4 border-emerald-600 w-8 h-8 flex justify-center items-center rounded-full">{rating}</span> */}
+                                    {/*  this component will generate animated emoticon according to the user's rating selection to give the user a better ui */}
                                         <div className="text-lg font-semibold">
-                                            {ratingImpression}
+                                            <RatingImpression selectedRating={rating} />
                                         </div>
                                     </div>
                                 </div>
