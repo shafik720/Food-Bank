@@ -5,6 +5,14 @@ export const foodApi = apiSlice.injectEndpoints({
     endpoints : (builder) => ({
 
         /* -------------------
+            Get all reviewed food item's data from database
+        -------------------- */
+
+        getAllFoodReview :builder.query({
+            query : () => '/review/getAllfoods'
+        }) ,
+
+        /* -------------------
             Add a food item to database
         -------------------- */
         addNewFoodReview : builder.mutation({
@@ -27,4 +35,4 @@ export const foodApi = apiSlice.injectEndpoints({
     })
 })
 
-export const {useAddNewFoodReviewMutation} = foodApi
+export const {useAddNewFoodReviewMutation, useGetAllFoodReviewQuery } = foodApi
