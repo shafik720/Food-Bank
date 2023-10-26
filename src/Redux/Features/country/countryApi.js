@@ -2,12 +2,19 @@ import { apiSlice } from "../Api/apiSlice";
 
 
 export const countryApi = apiSlice.injectEndpoints({
-    endpoints : (builder) => ({
-        getAllCountry : builder.query({
-            query : () => '/getCountry'
+    endpoints: (builder) => ({
+
+        // get all country data
+        getAllCountry: builder.query({
+            query: () => '/getCountry'
+        }),
+
+        // --- get single country data
+        getSingleCountry: builder.query({
+            query: (countryId) => `/getSingleCountry/${countryId}`
         })
     })
 })
 
 
-export const {useGetAllCountryQuery} = countryApi
+export const { useGetAllCountryQuery, useGetSingleCountryQuery } = countryApi

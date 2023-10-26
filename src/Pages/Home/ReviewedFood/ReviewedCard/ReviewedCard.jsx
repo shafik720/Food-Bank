@@ -4,6 +4,7 @@ import RatingImpression from "../../../../Utilites/RatingImpression/RatingImpres
 import { useEffect } from "react";
 import { useGetSingleCityQuery } from "../../../../Redux/Features/city/cityApi";
 import { useGetSingleStateQuery } from "../../../../Redux/Features/state/stateApi";
+import { useGetSingleCountryQuery } from "../../../../Redux/Features/country/countryApi";
 
 
 const ReviewedCard = ({ data }) => {
@@ -15,7 +16,9 @@ const ReviewedCard = ({ data }) => {
 
     // --- getting single state details with redux from mongodb
     const {data : singleState} = useGetSingleStateQuery(stateId);
-    console.log(singleState);
+
+    // --- getting single country details with redux from mongodb
+    const {data : singleCountry} = useGetSingleCountryQuery(countryId);
 
     
     return (
@@ -42,13 +45,14 @@ const ReviewedCard = ({ data }) => {
             {/* === Rating Section Starts === */}
 
             {/* === Restaurant Details Starts === */}
-            <div className="restaurant-details-div text-black mt-5 text-start">
+            <div className="restaurant-details-div text-black mt-5 text-center">
                 <div className="">
                     <p>Restaurant :</p>
                     <p className="font-bold text-xl capitalize"> {restaurant} </p>
                 </div>
                 <div>
-                    Country : {}
+                    <p>Country :</p>
+                    <p className="font-bold "> {singleCountry?.country_name} </p>
                 </div>
                 <div>
                     <p>State :</p>
