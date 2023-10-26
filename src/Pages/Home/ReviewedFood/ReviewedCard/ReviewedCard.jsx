@@ -3,14 +3,19 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import RatingImpression from "../../../../Utilites/RatingImpression/RatingImpression";
 import { useEffect } from "react";
 import { useGetSingleCityQuery } from "../../../../Redux/Features/city/cityApi";
+import { useGetSingleStateQuery } from "../../../../Redux/Features/state/stateApi";
 
 
 const ReviewedCard = ({ data }) => {
     const { foodname, imgUrl, rating, restaurant, countryId, stateId, cityId } = data.data;
 
 
-    // --- getting single city details with redux
+    // --- getting single city details with redux from mongodb
     const {data : singleCity} = useGetSingleCityQuery(cityId);
+
+    // --- getting single state details with redux from mongodb
+    const {data : singleState} = useGetSingleStateQuery(stateId);
+    console.log(singleState);
 
     
     return (
@@ -46,7 +51,8 @@ const ReviewedCard = ({ data }) => {
                     Country : {}
                 </div>
                 <div>
-                    State : {}
+                    <p>State :</p>
+                    <p className="font-bold "> {singleState?.state_name} </p>
                 </div>
                 <div>
                     <p>City :</p>
