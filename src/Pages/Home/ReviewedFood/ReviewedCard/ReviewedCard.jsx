@@ -1,11 +1,12 @@
 import { faStar } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { SwiperSlide } from "swiper/react";
+
+import { Pagination } from "swiper/modules";
+import { SwiperSlide,Swiper } from "swiper/react";
 
 
 const ReviewedCard = ({ data }) => {
     return (
-        <SwiperSlide className='mx-auto'>
             <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4">
                 <img className='w-full' src="https://i.ibb.co/k1ydWxp/recipes-21-700x600.jpg" alt="" />
                 <h2 className='text-slate-900 font-semibold text-lg '>Cheesy Sausage Lasagna with soup</h2>
@@ -17,7 +18,6 @@ const ReviewedCard = ({ data }) => {
                     </div>
                 </div>
             </div>
-        </SwiperSlide>
     );
 };
 

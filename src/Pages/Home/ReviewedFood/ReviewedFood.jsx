@@ -30,7 +30,7 @@ const ReviewedFood = () => {
 
 
     if (!isLoading && !isError && data?.length > 0) {
-        content = data.map(index => <ReviewedCard key={index._id} data={index}></ReviewedCard>)
+        content = data.map(index =><SwiperSlide key={index._id} className='mx-auto'><ReviewedCard  data={index}></ReviewedCard></SwiperSlide> )
 
     }  
 
@@ -64,47 +64,8 @@ const ReviewedFood = () => {
                         modules={[Pagination]}
                         className="mySwiper "
                     >
-                        <SwiperSlide className='lg:ms-80  '>
-                            <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4 mx-auto">
-                                <img className='w-full' src="https://i.ibb.co/k1ydWxp/recipes-21-700x600.jpg" alt="" />
-                                <h2 className='text-slate-900 font-semibold text-lg '>Cheesy Sausage Lasagna with soup</h2>
-                                <div className="rating-div flex justify-center items-center mt-4 ">
-                                    <p className='text-black'>Rating : </p>
-                                    <div className="bg-orange-400 flex justify-center items-center gap-2 px-2 ms-2">
-                                        <p className='text-xl'>5</p>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='mx-auto'>
-                            <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4">
-                                <img className='w-full' src="https://i.ibb.co/k1ydWxp/recipes-21-700x600.jpg" alt="" />
-                                <h2 className='text-slate-900 font-semibold text-lg '>Cheesy Sausage Lasagna with soup</h2>
-                                <div className="rating-div flex justify-center items-center mt-4 ">
-                                    <p className='text-black'>Rating : </p>
-                                    <div className="bg-orange-400 flex justify-center items-center gap-2 px-2 ms-2">
-                                        <p className='text-xl'>5</p>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
-                        <SwiperSlide className='mx-auto'>
-                            <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4">
-                                <img className='w-full' src="https://i.ibb.co/k1ydWxp/recipes-21-700x600.jpg" alt="" />
-                                <h2 className='text-slate-900 font-semibold text-lg '>Cheesy Sausage Lasagna with soup</h2>
-                                <div className="rating-div flex justify-center items-center mt-4 ">
-                                    <p className='text-black'>Rating : </p>
-                                    <div className="bg-orange-400 flex justify-center items-center gap-2 px-2 ms-2">
-                                        <p className='text-xl'>5</p>
-                                        <FontAwesomeIcon icon={faStar} />
-                                    </div>
-                                </div>
-                            </div>
-                        </SwiperSlide>
+                        {content}
                         
-                        {/* {content} */}
                     </Swiper>
                 </div>
             </div>
