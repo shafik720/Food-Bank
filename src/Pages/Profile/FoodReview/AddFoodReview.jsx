@@ -24,7 +24,10 @@ const AddFoodReview = () => {
         setRating(selectedRating)
     }
 
-    // --- add a food review to database
+    // --- select img url for food's pic
+    const [imgUrl, setImgUrl] = useState('') ; 
+
+    // --- add a food review to database with Redux
     const [addFoodReview, { data, isLoading, isError, error }] = useAddNewFoodReviewMutation();
 
     const handleReviewSubmit = (e) => {
@@ -35,14 +38,9 @@ const AddFoodReview = () => {
             cityId : selectedCity,
             restaurant,
             foodname, 
-            rating
+            rating,
+            imgUrl
         })
-        // console.log('Country Id : ', selectedCountry);
-        // console.log('State Id : ', selectedState);
-        // console.log('City Id : ', selectedCity);
-        // console.log('Restaurant Name : ', restaurant);
-        // console.log('Food Name : ', foodname);
-        // console.log(rating);
     }
 
     return (
@@ -69,6 +67,14 @@ const AddFoodReview = () => {
                         <p className="font-semibold text-slate-800 text-center">Food Name : </p>
                         <span>
                             <input onBlur={e => setFoodname(e.target.value)} required type="text" placeholder="Type Food Name Here  " className="input input-success w-full max-w-xs rounded-sm" />
+                        </span>
+                    </div>
+
+                    {/* --- Select Food Picture --- */}
+                    <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
+                        <p className="font-semibold text-slate-800 text-center">Food Img : </p>
+                        <span>
+                            <input onBlur={e => setImgUrl(e.target.value)} required type="text" placeholder="Type Img Url" className="input input-success w-full max-w-xs rounded-sm" />
                         </span>
                     </div>
 
