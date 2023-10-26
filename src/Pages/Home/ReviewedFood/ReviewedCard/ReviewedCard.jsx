@@ -12,15 +12,15 @@ const ReviewedCard = ({ data }) => {
 
 
     // --- getting single city details with redux from mongodb
-    const {data : singleCity} = useGetSingleCityQuery(cityId);
+    const { data: singleCity } = useGetSingleCityQuery(cityId);
 
     // --- getting single state details with redux from mongodb
-    const {data : singleState} = useGetSingleStateQuery(stateId);
+    const { data: singleState } = useGetSingleStateQuery(stateId);
 
     // --- getting single country details with redux from mongodb
-    const {data : singleCountry} = useGetSingleCountryQuery(countryId);
+    const { data: singleCountry } = useGetSingleCountryQuery(countryId);
 
-    
+
     return (
         <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4">
 
@@ -45,22 +45,25 @@ const ReviewedCard = ({ data }) => {
             {/* === Rating Section Starts === */}
 
             {/* === Restaurant Details Starts === */}
-            <div className="restaurant-details-div text-black mt-5 text-center">
+            <div className="restaurant-details-div text-black mt-5 text-start">
                 <div className="">
-                    <p>Restaurant :</p>
+                    <p className=" text-red-800">Restaurant :</p>
                     <p className="font-bold text-xl capitalize"> {restaurant} </p>
                 </div>
                 <div>
-                    <p>Country :</p>
-                    <p className="font-bold "> {singleCountry?.country_name} </p>
+                    <p className=" text-red-800">Country :</p>
+                    <div className="flex justify-start items-center gap-4">
+                        <p className="font-bold "> {singleCountry?.country_name} </p>
+                        <img className="w-5" src={`https://flagcdn.com/w320/${singleCountry?.sortname.toLowerCase()}.png`} alt="" />
+                    </div>
                 </div>
                 <div>
-                    <p>State :</p>
+                    <p className=" text-red-800">State :</p>
                     <p className="font-bold "> {singleState?.state_name} </p>
                 </div>
                 <div>
-                    <p>City :</p>
-                    <p className="font-bold "> {singleCity?.city_name} </p>
+                    <p className=" text-red-800">City :</p>
+                    <p className="font-bold text-red"> {singleCity?.city_name} </p>
                 </div>
             </div>
 
