@@ -73,23 +73,36 @@ const AddFoodReview = () => {
                     {/* --- Select Restaurant Name --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
-                        <span>
+                        <span className="relative">
                             <input
                                 onBlur={e => setRestaurant(e.target.value)}
-                                onKeyUp={e => setRestaurant(e.target.value)}
-                                defaultValue={restaurant}
+                                onChange={e => setRestaurant(e.target.value)}
+                                value={restaurant}
                                 required
                                 type="text"
                                 placeholder="Type Restaurant Name Here "
                                 className="input input-success w-full max-w-xs  rounded-sm"
                             />
                             {/* Display the suggestions */}
-                            {suggestions?.length > 0 && (
-                                <ul>
-                                    {suggestions.map((item, index) => (
-                                        <li key={index} onClick={() => setRestaurant(item.data.restaurant)}>
+                            {restaurant?.length > 0 && (
+                                <ul className="absolute left-0 right-0  bg-slate-100">
+                                    {suggestions?.map((item, index) => (
+                                        <li className="mt-4 hover:bg-blue-300 cursor-pointer py-3 px-4 hover:font-semibold" key={index} onClick={() => setRestaurant(item.data.restaurant)}>
                                             {item.data.restaurant}
                                         </li>
+                                        /* 
+                                        
+    position: absolute;
+    background: yellow;
+    left: 0;
+    right: 0;
+    padding: 15px 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    row-gap: 10px; 
+    */
                                     ))}
                                 </ul>
                             )}
