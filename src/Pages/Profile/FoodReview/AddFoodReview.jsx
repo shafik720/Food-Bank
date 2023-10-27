@@ -15,11 +15,18 @@ const AddFoodReview = () => {
     const [selectedState, setSelectedState] = useState(0);
     const [selectedCity, setSelectedCity] = useState(0);
 
-    const{data : foodByCountry} = useGetFoodByCountryQuery(parseInt(selectedCountry))
-
     // --- get restaturant and food name
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
+
+    const{data : foodByCountry} = useGetFoodByCountryQuery(parseInt(selectedCountry))
+    // console.log(foodByCountry);
+    const [suggestions, setSuggestions] = useState([]);
+    useEffect(()=>{
+        const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()) );
+        setSuggestions(filteredSuggestions);
+        console.log(filteredSuggestions);
+    },[restaurant]);
 
     // --- get the value of rating
     const [rating, setRating] = useState(5);
