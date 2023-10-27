@@ -19,14 +19,14 @@ const AddFoodReview = () => {
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
 
-    const{data : foodByCountry} = useGetFoodByCountryQuery(parseInt(selectedCountry))
+    const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry))
     // console.log(foodByCountry);
     const [suggestions, setSuggestions] = useState([]);
-    useEffect(()=>{
-        const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()) );
+    useEffect(() => {
+        const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
         setSuggestions(filteredSuggestions);
-        console.log(filteredSuggestions);
-    },[restaurant]);
+        // console.log(filteredSuggestions);
+    }, [restaurant]);
 
     // --- get the value of rating
     const [rating, setRating] = useState(5);
@@ -36,10 +36,10 @@ const AddFoodReview = () => {
     }
 
     // --- select img url for food's pic
-    const [imgUrl, setImgUrl] = useState('') ; 
+    const [imgUrl, setImgUrl] = useState('');
 
     // --- get user information
-    const [user, loading] = useAuthState(auth) ;
+    const [user, loading] = useAuthState(auth);
 
     // --- add a food review to database with Redux
     const [addFoodReview, { data, isLoading, isError, error }] = useAddNewFoodReviewMutation();
@@ -47,14 +47,14 @@ const AddFoodReview = () => {
     const handleReviewSubmit = (e) => {
         e.preventDefault();
         addFoodReview({
-            countryId : selectedCountry,
-            stateId : selectedState,
-            cityId : selectedCity,
+            countryId: selectedCountry,
+            stateId: selectedState,
+            cityId: selectedCity,
             restaurant,
-            foodname, 
+            foodname,
             rating,
-            userEmail : user.email,
-            userId : user.uid,
+            userEmail: user.email,
+            userId: user.uid,
             imgUrl
         })
     }
@@ -74,7 +74,25 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
                         <span>
-                            <input onBlur={e => setRestaurant(e.target.value)} required type="text" placeholder="Type Restaurant Name Here " className="input input-success w-full max-w-xs  rounded-sm" />
+                            <input
+                                onBlur={e => setRestaurant(e.target.value)}
+                                onKeyUp={e => setRestaurant(e.target.value)}
+                                defaultValue={restaurant}
+                                required
+                                type="text"
+                                placeholder="Type Restaurant Name Here "
+                                className="input input-success w-full max-w-xs  rounded-sm"
+                            />
+                            {/* Display the suggestions */}
+                            {suggestions?.length > 0 && (
+                                <ul>
+                                    {suggestions.map((item, index) => (
+                                        <li key={index} onClick={() => setRestaurant(item.data.restaurant)}>
+                                            {item.data.restaurant}
+                                        </li>
+                                    ))}
+                                </ul>
+                            )}
                         </span>
                     </div>
 
@@ -82,7 +100,12 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Food Name : </p>
                         <span>
-                            <input onBlur={e => setFoodname(e.target.value)} required type="text" placeholder="Type Food Name Here  " className="input input-success w-full max-w-xs rounded-sm" />
+                            <input
+                                onBlur={e => setFoodname(e.target.value)}
+                                required type="text"
+                                placeholder="Type Food Name Here  "
+                                className="input input-success w-full max-w-xs rounded-sm"
+                            />
                         </span>
                     </div>
 
@@ -90,7 +113,12 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Food Img : </p>
                         <span>
-                            <input onBlur={e => setImgUrl(e.target.value)}  type="text" placeholder="Type Img Url" className="input input-success w-full max-w-xs rounded-sm" />
+                            <input
+                                onBlur={e => setImgUrl(e.target.value)}
+                                type="text"
+                                placeholder="Type Img Url"
+                                className="input input-success w-full max-w-xs rounded-sm"
+                            />
                         </span>
                     </div>
 
