@@ -3,7 +3,7 @@ import CountrySelection from "../../../Utilites/Country&CitySelection/CountrySel
 import CitySelection from "../../../Utilites/Country&CitySelection/CitySelection";
 import StateSelection from "../../../Utilites/Country&CitySelection/StateSelection";
 import RatingImpression from "../../../Utilites/RatingImpression/RatingImpression";
-import { useAddNewFoodReviewMutation } from "../../../Redux/Features/food/foodApi";
+import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery } from "../../../Redux/Features/food/foodApi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 
@@ -14,6 +14,8 @@ const AddFoodReview = () => {
     const [selectedCountry, setSelectedCountry] = useState(0);
     const [selectedState, setSelectedState] = useState(0);
     const [selectedCity, setSelectedCity] = useState(0);
+
+    const{data : foodByCountry} = useGetFoodByCountryQuery(parseInt(selectedCountry))
 
     // --- get restaturant and food name
     const [restaurant, setRestaurant] = useState('');
@@ -81,7 +83,7 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Food Img : </p>
                         <span>
-                            <input onBlur={e => setImgUrl(e.target.value)} required type="text" placeholder="Type Img Url" className="input input-success w-full max-w-xs rounded-sm" />
+                            <input onBlur={e => setImgUrl(e.target.value)}  type="text" placeholder="Type Img Url" className="input input-success w-full max-w-xs rounded-sm" />
                         </span>
                     </div>
 
