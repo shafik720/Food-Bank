@@ -11,6 +11,8 @@ const CountrySelection = ({ onCountryChange }) => {
     // --- get all country list from mongodb with redux
     const { data, isLoading, isError, error, isSuccess } = useGetAllCountryQuery();
 
+    const [countries, setCountries] = useState([]);
+
     // --- deciding what to render while fetching data from server with redux
     let content = null;
 
@@ -29,12 +31,12 @@ const CountrySelection = ({ onCountryChange }) => {
 
 
     if (!isLoading && !isError && data?.length > 0) {
-
+        const sortedData = [...data].sort((a,b)=>a.country_name.localeCompare(b.country_name));
         content = <div className="country-selection-div lg:grid lg:grid-cols-2">
             <label htmlFor="country" className="font-semibold text-slate-800  text-center">Select Country :</label>
             <Select
                 className=" "
-                options={data.map((country) => ({
+                options={sortedData.sort((a,b)=>a.country_name.localeCompare(b.country_name)).map((country) => ({
                     value: country.country_id,
                     label: (
                         <div className="flex gap-2 justify-start items-center font-semibold">
