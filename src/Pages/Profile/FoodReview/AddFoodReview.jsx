@@ -4,6 +4,8 @@ import CitySelection from "../../../Utilites/Country&CitySelection/CitySelection
 import StateSelection from "../../../Utilites/Country&CitySelection/StateSelection";
 import RatingImpression from "../../../Utilites/RatingImpression/RatingImpression";
 import { useAddNewFoodReviewMutation } from "../../../Redux/Features/food/foodApi";
+import { useAuthState } from "react-firebase-hooks/auth";
+import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 
 
 const AddFoodReview = () => {
@@ -27,6 +29,9 @@ const AddFoodReview = () => {
     // --- select img url for food's pic
     const [imgUrl, setImgUrl] = useState('') ; 
 
+    // --- get user information
+    const [user, loading] = useAuthState(auth) ;
+
     // --- add a food review to database with Redux
     const [addFoodReview, { data, isLoading, isError, error }] = useAddNewFoodReviewMutation();
 
@@ -39,6 +44,8 @@ const AddFoodReview = () => {
             restaurant,
             foodname, 
             rating,
+            userEmail : user.email,
+            userId : user.uid,
             imgUrl
         })
     }

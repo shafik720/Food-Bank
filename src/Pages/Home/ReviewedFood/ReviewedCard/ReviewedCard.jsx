@@ -22,10 +22,10 @@ const ReviewedCard = ({ data }) => {
 
 
     return (
-        <div className="vegan-card bg-white w-52 pb-9 pt-4 px-4">
+        <div className="vegan-card bg-white w-64 pb-9 pt-4 px-4">
 
             {/* === Food Name === */}
-            <div className="w-40 h-40 overflow-hidden flex justify-center items-start mx-auto">
+            <div className="w-52 h-40 overflow-hidden flex justify-center items-start mx-auto">
                 <img className=' w-full ' src={imgUrl || 'https://i.ibb.co/k1ydWxp/recipes-21-700x600.jpg'} alt="" />
             </div>
 
@@ -48,22 +48,22 @@ const ReviewedCard = ({ data }) => {
             <div className="restaurant-details-div text-black mt-5 text-start">
                 <div className="">
                     <p className=" text-red-800">Restaurant :</p>
-                    <p className="font-bold text-xl capitalize"> {restaurant} </p>
+                    <p className="font-semibold text-xl capitalize"> {restaurant} </p>
                 </div>
                 <div>
                     <p className=" text-red-800">Country :</p>
                     <div className="flex justify-start items-center gap-4">
-                        <p className="font-bold "> {singleCountry?.country_name} </p>
+                        <p className="font-semibold "> {singleCountry?.country_name} </p>
                         <img className="w-5" src={`https://flagcdn.com/w320/${singleCountry?.sortname.toLowerCase()}.png`} alt="" />
                     </div>
                 </div>
                 <div>
                     <p className=" text-red-800">State :</p>
-                    <p className="font-bold "> {singleState?.state_name} </p>
+                    <p className="font-semibold "> {singleState?.state_name} </p>
                 </div>
                 <div>
                     <p className=" text-red-800">City :</p>
-                    <p className="font-bold text-red"> {singleCity?.city_name} </p>
+                    <p className="font-semibold text-red"> {singleCity?.city_name} </p>
                 </div>
             </div>
 
