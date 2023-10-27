@@ -6,6 +6,8 @@ import RatingImpression from "../../../Utilites/RatingImpression/RatingImpressio
 import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery } from "../../../Redux/Features/food/foodApi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faPlus } from "@fortawesome/free-solid-svg-icons";
 
 
 const AddFoodReview = () => {
@@ -25,10 +27,20 @@ const AddFoodReview = () => {
     useEffect(() => {
         const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
         setSuggestions(filteredSuggestions);
-        // console.log(filteredSuggestions);
+        // console.log(restaurant);
     }, [restaurant]);
     const [lockFoodname, setLockFoodname] = useState(false);
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
+    function handleRestaurantName(e) {
+        // setRestaurant(e.target.value);
+        if (restaurant.length > 0) {
+            setLockRestaurantName(true);
+        }
+    }
+    function handleClickSuggestedRestaurant(e) {
+        setRestaurant(e);
+        setLockRestaurantName(true);
+    }
 
     // --- get the value of rating
     const [rating, setRating] = useState(5);
@@ -76,24 +88,39 @@ const AddFoodReview = () => {
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
                         <span className="relative">
-                            <input
-                                onBlur={e => setRestaurant(e.target.value)}
-                                onChange={e => setRestaurant(e.target.value)}
-                                value={restaurant}
-                                required
-                                type="text"
-                                placeholder="Type Restaurant Name Here "
-                                className="input input-success w-full max-w-xs  rounded-sm"
-                            />
-                            
+                            {!lockRestaurantName ?
+                                <input
+                                    // onBlur={e => handleRestaurantName(e)}
+                                    onChange={e => setRestaurant(e.target.value)}
+                                    value={restaurant}
+                                    required
+                                    type="text"
+                                    placeholder="Type Restaurant Name Here "
+                                    className="input input-success w-full max-w-xs  rounded-sm"
+                                />
+                                :
+                                <div className="flex justify-start items-center gap-5">
+                                    <p className="text-2xl text-gray-600 font-semibold capitalize ">{restaurant}</p>
+                                    <div>
+                                        <button onClick={e => setLockRestaurantName(false)} className=" btn-info btn-sm font-semibold text-white hover:text-black">Edit</button>
+                                    </div>
+                                </div>
+                            }
+
                             {/* Display the suggestions */}
-                            {restaurant?.length > 0 && (
+                            {(restaurant?.length && !lockRestaurantName) > 0 && (
                                 <ul className="absolute left-0 right-0  bg-slate-100">
                                     {suggestions?.map((item, index) => (
-                                        <li className="mt-4 hover:bg-blue-300 cursor-pointer py-3 px-4 hover:font-semibold" key={index} onClick={() => setRestaurant(item.data.restaurant)}>
+                                        <li className=" hover:bg-blue-300 cursor-pointer py-1 px-4 hover:font-semibold " key={index} onClick={() => handleClickSuggestedRestaurant(item.data.restaurant)}>
                                             {item.data.restaurant}
                                         </li>
                                     ))}
+
+                                    {suggestions?.length == 0 &&
+                                        <li className="hover:bg-blue-300 cursor-pointer py-3 px-4 hover:font-semibold flex items-center" onClick={(e) => handleClickSuggestedRestaurant(restaurant)}>
+                                            <div className="me-2 border-2 border-slate-600 rounded-full w-5 h-5 flex items-center justify-center  m-0 p-0 text-xs"><FontAwesomeIcon icon={faPlus} /></div> <span className="text-xl text-emerald-600 font-bold">{restaurant}</span>
+                                        </li>
+                                    }
                                 </ul>
                             )}
                         </span>
