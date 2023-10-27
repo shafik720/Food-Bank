@@ -35,7 +35,8 @@ const CitySelection = ({ stateId, onCityChange }) => {
 
 
     if (!isLoading && !isError && isSuccess) {
-        // console.log(data);
+        const sortedData = [...data].sort((a,b)=>a.city_name.localeCompare(b.city_name));
+
         content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5">
             <label htmlFor="city" className="font-semibold text-slate-800 text-center">Select a City :</label>
             <select
@@ -45,7 +46,7 @@ const CitySelection = ({ stateId, onCityChange }) => {
                 className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
             >
                 <option value="0">Select City</option>
-                {data.map((city) => (
+                {sortedData.map((city) => (
                     <option key={city._id} value={city.city_id}>
                         {city.city_name}
                     </option>
