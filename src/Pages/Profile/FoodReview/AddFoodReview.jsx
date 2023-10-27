@@ -19,14 +19,16 @@ const AddFoodReview = () => {
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
 
+    // --- get food data by country 
     const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry))
-    // console.log(foodByCountry);
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
         const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
         setSuggestions(filteredSuggestions);
         // console.log(filteredSuggestions);
     }, [restaurant]);
+    const [lockFoodname, setLockFoodname] = useState(false);
+    const [lockRestaurantName, setLockRestaurantName] = useState(false);
 
     // --- get the value of rating
     const [rating, setRating] = useState(5);
@@ -83,6 +85,7 @@ const AddFoodReview = () => {
                                 placeholder="Type Restaurant Name Here "
                                 className="input input-success w-full max-w-xs  rounded-sm"
                             />
+                            
                             {/* Display the suggestions */}
                             {restaurant?.length > 0 && (
                                 <ul className="absolute left-0 right-0  bg-slate-100">
@@ -90,19 +93,6 @@ const AddFoodReview = () => {
                                         <li className="mt-4 hover:bg-blue-300 cursor-pointer py-3 px-4 hover:font-semibold" key={index} onClick={() => setRestaurant(item.data.restaurant)}>
                                             {item.data.restaurant}
                                         </li>
-                                        /* 
-                                        
-    position: absolute;
-    background: yellow;
-    left: 0;
-    right: 0;
-    padding: 15px 10px;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    row-gap: 10px; 
-    */
                                     ))}
                                 </ul>
                             )}
