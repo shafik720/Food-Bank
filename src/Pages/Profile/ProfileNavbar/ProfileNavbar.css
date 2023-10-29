@@ -103,3 +103,56 @@
 .menu-text{
     /* transition: all 0.1s ease; */
 }
+
+.mobile-menu-icon{
+    position: fixed;
+    bottom: 10px;
+    left: 20px;
+    border: 2px solid;
+    width: 30px;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    
+}
+
+/*--------------------------------------------------------------------------
+For mobile:  
+---------------------------------------------------------------------------*/
+@media only screen and (max-width:480px){
+
+    .profile-navbar-div{
+        left: -200px;
+        transition: all 0.3s ease;
+        z-index: 50;
+
+    }
+    .profile-navbar-div.activeMobile{
+        left: 20px;
+    }
+    .mobile-menu-icon{
+        position: fixed;
+        bottom: 10px;
+        left: 20px;
+        border: 5px solid #2a2a2a;
+        width: 50px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+        background: white;
+        z-index: 50;
+    }
+    .mobile-menu-icon.activeMobile{
+        width: 100px;
+        border-radius: 0;
+    }
+    .mobile-menu-icon p{
+        color: red;
+    }
+}
