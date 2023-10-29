@@ -4,7 +4,6 @@ import './ProfileInfo.css';
 
 const ProfileInfo = () => {
     const [user, loading, error] = useAuthState(auth);
-    console.log(user);
     return (
         <div className="profile-info-div ">
             <h2 className="text-2xl font-semibold pb-4 text-center">Profile information</h2>

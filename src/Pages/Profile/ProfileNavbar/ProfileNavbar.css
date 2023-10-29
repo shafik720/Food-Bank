@@ -190,8 +190,5 @@ For mobile:
         border-radius: 0;
     }
 
-    .mobile-menu-icon p {
-        color: red;
-        transition: all 0.3s ease;
-    }
+
 }

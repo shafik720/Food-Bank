@@ -86,7 +86,7 @@ const AddFoodReview = () => {
 
                     {/* --- Select Restaurant Name --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
-                        <p className="font-semibold text-slate-800 text-center">Restaurant Name : </p>
+                        <p className="font-semibold text-slate-800 text-center mb-3 md:mb-0">Restaurant Name : </p>
                         <span className="relative">
                             {!lockRestaurantName ?
                                 <input
@@ -128,7 +128,7 @@ const AddFoodReview = () => {
 
                     {/* --- Select Food Name --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
-                        <p className="font-semibold text-slate-800 text-center">Food Name : </p>
+                        <p className="font-semibold text-slate-800 text-center mb-3 md:mb-0">Food Name : </p>
                         <span>
                             <input
                                 onBlur={e => setFoodname(e.target.value)}
@@ -141,7 +141,7 @@ const AddFoodReview = () => {
 
                     {/* --- Select Food Picture --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
-                        <p className="font-semibold text-slate-800 text-center">Food Img : </p>
+                        <p className="font-semibold text-slate-800 text-center mb-3 md:mb-0">Food Img : </p>
                         <span>
                             <input
                                 onBlur={e => setImgUrl(e.target.value)}
@@ -154,8 +154,8 @@ const AddFoodReview = () => {
 
                     {/* --- Select Rating --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
-                        <p className="font-semibold text-slate-800 text-center">Give Your Rating : </p>
-                        <span className="flex items-center">
+                        <p className="font-semibold text-slate-800 text-center mb-3 md:mb-0">Give Your Rating : </p>
+                        <span className="flex items-center justify-center md:justify-normal">
                             <div className="rating rating-lg">
                                 <input type="radio" value="1" onChange={handleRating} name="rating-4" className="mask mask-star-2 bg-orange-400" />
                                 <input type="radio" value="2" onChange={handleRating} name="rating-4" className="mask mask-star-2 bg-orange-400" />
@@ -169,7 +169,7 @@ const AddFoodReview = () => {
                     {/* --- Rating impression --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-start items-center mt-8">
                         <div></div>
-                        <div className="flex items-center">
+                        <div className="flex items-center justify-center md:justify-normal">
                             {/*  this component will generate animated emoticon according to the user's rating selection to give the user a better ui */}
                             <div className="text-lg font-semibold">
                                 <RatingImpression selectedRating={rating} />
@@ -179,7 +179,9 @@ const AddFoodReview = () => {
 
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">
                         <div></div>
-                        <button className="btn btn-active btn-success w-52 hover:bg-red-800 hover:text-white border-none ">Submit Review</button>
+                        <div className="text-center md:text-left" >
+                            <button className="btn btn-active btn-success w-52 hover:bg-red-800 hover:text-white border-none">Submit Review</button>
+                        </div>
                     </div>
                 </form>
             </div>

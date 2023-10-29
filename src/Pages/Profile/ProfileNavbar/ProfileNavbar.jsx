@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 import './ProfileNavbar.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faBars } from '@fortawesome/free-solid-svg-icons';
 
@@ -12,8 +12,27 @@ const ProfileNavbar = () => {
     // --- getting user information
     const [user, loading, error] = useAuthState(auth);
 
+    // --- modifying the profile menu for mobile view
     const [activeMobile, setActiveMobile] = useState(false);
 
+    useEffect(() => {
+        function handleOutsideClick(event) {
+            if (activeMobile && !document.querySelector(".mobile-menu-icon").contains(event.target)) {
+              setActiveMobile(false);
+            }
+            console.log('clicked');
+          }
+        if(activeMobile){
+            document.body.addEventListener('click',handleOutsideClick) ;
+        }else{
+            document.body.removeEventListener('click', handleOutsideClick)
+        }
+        return () => {
+            document.body.removeEventListener('click', handleOutsideClick)
+        }
+    }
+    , [activeMobile])
+    
     // const handleMobileMenu = () => {
     //     const menu = document.querySelector('.profile-navbar-div');
     //     menu.classList.add('activeMobile');
@@ -40,8 +59,9 @@ const ProfileNavbar = () => {
             </li> */}
                 </ul>
             </div>
-            <div className={`mobile-menu-icon ${activeMobile ? 'activeMobile' : ''}`} onClick={() => setActiveMobile(!activeMobile)}>
-                <p><FontAwesomeIcon icon={faBars} /></p>
+            <div className={`mobile-menu-icon ${activeMobile ? 'activeMobile' : ''}`} draggable onClick={() => setActiveMobile(!activeMobile)}>
+                {/* <p><FontAwesomeIcon icon={faBars} /></p> */}
+                <img className='w-4' src="https://i.ibb.co/wyYSy9T/dots-menu.png" alt="" />
             </div>
         </div>
     );

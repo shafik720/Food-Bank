@@ -38,13 +38,13 @@ const StateSelection = ({ countryId, onStateChange }) => {
     if (!isLoading && !isError && isSuccess) {
         const sortedData = [...data].sort((a,b)=>a.state_name.localeCompare(b.state_name));
 
-        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5">
+        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5 text-center">
             <label htmlFor="city" className="font-semibold text-slate-800  text-center">Select a State :</label>
             <select
                 id="city"
                 disabled={option}
                 onChange={(e) => onStateChange(e.target.value)}
-                className="block w-full p-2 bg-white border border-gray-300 rounded shadow"
+                className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3 md:mt-0"
             >
                 <option value="0">Select State</option>
                 {sortedData.map((state) => (

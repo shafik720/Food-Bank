@@ -37,7 +37,7 @@ const CitySelection = ({ stateId, onCityChange }) => {
     if (!isLoading && !isError && isSuccess) {
         const sortedData = [...data].sort((a,b)=>a.city_name.localeCompare(b.city_name));
 
-        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5">
+        content = <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-5 text-center">
             <label htmlFor="city" className="font-semibold text-slate-800 text-center">Select a City :</label>
             <select
                 id="city"
