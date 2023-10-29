@@ -1,0 +1,53 @@
+.profile-navbar-div {
+    position: fixed;
+    border: 3px solid #2a2a2a;
+    border-radius: 5px;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    font-weight: 600;
+    color: white;
+    padding: 10px 10px;
+    font-size: 12px;
+    font-weight: 600;
+    /* background: #91C8E4; */
+    background: rgba(0, 0, 0, 0.61);
+    text-align: center;
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
+}
+.profile-navbar-div ul {
+    display: flex;
+    justify-content: space-evenly;
+    align-items: end;
+}
+.profile-navbar-div ul li{
+    width: 120px;
+}
+.profile-navbar-div ul li .menu-outer-span {
+    width: 50px;
+    height: 50px;
+    border: 2px solid white;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center !important;
+    text-align: center;
+}
+.active .menu-outer-span {
+    background: white;
+    border: 2px solid black !important;
+    position: absolute;
+    bottom: 10px;
+}
+.profile-navbar-div ul li .menu-outer-span img {
+    width: 30px;
+}
+.menu-text{
+    position: absolute;
+    bottom: -5px;
+    width: 120px;
+}
+.active .menu-text{
+    color: orange;
+    margin-top: 200px ;
+}

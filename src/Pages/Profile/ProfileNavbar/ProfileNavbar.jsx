@@ -1,5 +1,6 @@
 import { NavLink } from 'react-router-dom';
-import './ProfileNavbar.css';
+// import './ProfileNavbar.css';
+import './ProfileNavbar2.css';
 import { useAuthState } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
 
