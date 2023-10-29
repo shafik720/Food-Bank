@@ -30,15 +30,17 @@ const ProfileNavbar = () => {
                     <li>
                         <NavLink to='/profile/editProfile' activeClassName="menu-active" className='flex flex-col justify-center items-center gap-2  relative'> <span className='menu-outer-span'> <span className="menu-inner-span special-radius2"><img src="https://i.ibb.co/5WDXr6R/user-avatar-1.png" alt="" /></span></span> <span className='menu-text'>Edit Profile</span></NavLink>
                     </li>
-                    <li>
-                        <NavLink to='/profile/addReview' activeClassName="menu-active" className='flex flex-col justify-center items-center gap-2  relative'> <span className='menu-outer-span'> <span className="menu-inner-span special-radius"><img src="https://i.ibb.co/pXgKmgC/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png" alt="" /></span></span> <span className='menu-text'>Add a Food Review</span></NavLink>
+                    <li className='profile-li'>
+                        <div className="relative">
+                            <NavLink to='/profile/addReview' activeClassName="menu-active" className='flex flex-col justify-center items-center gap-2  relative'> <span className='menu-outer-span'> <span className="menu-inner-span special-radius"><img src="https://i.ibb.co/pXgKmgC/restaurant-cutlery-circular-symbol-of-a-spoon-and-a-fork-in-a-circle.png" alt="" /></span></span> <span className='menu-text'>Add a Food Review</span></NavLink>
+                        </div>
                     </li>
                     {/* <li>
                 <NavLink to='/profile/editProfile' activeClassName="menu-active" className='flex flex-col justify-center items-center gap-2  relative'> <span className='menu-outer-span'> <span className="menu-inner-span"><img src="https://i.ibb.co/wyyc0S0/user-avatar.png" alt="" /></span></span> <span className='menu-text'>Edit Profile</span></NavLink>
             </li> */}
                 </ul>
             </div>
-            <div className={`mobile-menu-icon ${activeMobile ? 'activeMobile' : ''}`} onClick={()=>setActiveMobile(!activeMobile)}>
+            <div className={`mobile-menu-icon ${activeMobile ? 'activeMobile' : ''}`} onClick={() => setActiveMobile(!activeMobile)}>
                 <p><FontAwesomeIcon icon={faBars} /></p>
             </div>
         </div>
