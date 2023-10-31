@@ -158,19 +158,19 @@ For mobile:
     .menubar{
         background: rgba(47, 64, 71, 0.94)   ;
         position: fixed;
-        border: 3px solid white;
+        border: 3px solid gray;
         top: -500px;
         left: 5%;
         right: 5%;
         transition: all 0.3s ease;
-        z-index: 50;
+        z-index: 100;
     }
     .menubar.active{
         top: 5%;
         bottom: 5%;
     }
     .mobile-menu-icons{
-        border: 2px solid white;
+        border: 2px solid gray;
         border-radius: 2px;
         position: fixed;
         top:   2%;
@@ -183,6 +183,7 @@ For mobile:
         display: flex;
         justify-content: center;
         align-items: center;
+        z-index: 110;
     }
     .mobile-menu-icons.active{
         transform: rotate(180deg);

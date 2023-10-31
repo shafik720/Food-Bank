@@ -7,6 +7,8 @@ import { useAuthState, useSignOut } from 'react-firebase-hooks/auth';
 import { auth } from '../../../Utilites/Firebase Auth/firebase.inti';
 import { ClipLoader } from 'react-spinners';
 import { successMsg } from '../../../Utilites/PopupMsg/PopupMsg';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faBars } from '@fortawesome/free-solid-svg-icons';
 
 const Navbar = () => {
 
@@ -23,10 +25,10 @@ const Navbar = () => {
     
     return (
         <div className='menu-div px-5'>
-
             {/* --- Mobile Menu Icons Start --- */}
             <div className={`mobile-menu-icons ${isActive ? 'active' : ''}`}>
-                <img src={menu1} alt="" draggable onClick={() => setIsActive(!isActive)} className="menuImgOne" />
+                {/* <img src={menu1} alt="" draggable onClick={() => setIsActive(!isActive)} className="menuImgOne" /> */}
+                <FontAwesomeIcon icon={faBars} onClick={() => setIsActive(!isActive)} className="menuImgOne text-gray-400"  />
                 <img src={menu2} alt="" draggable onClick={() => setIsActive(!isActive)} className="menuImgTwo" />
             </div>
             {/* --- Mobile Menu Icons end --- */}
@@ -42,7 +44,7 @@ const Navbar = () => {
                 {/* --- Menu Items --- */}
                 <div className="menubar-right">
                     <div className="menu-link">
-                        <ul className={`${location.pathname.includes('/profile') && 'submenu-black-text'}`}>
+                        <ul className={`${location.pathname.includes('/profile') && 'submenu-black-text '}`}>
                             <Link to="/" className='menu-parent'>Home
                                 <div className="mini-menu">
                                     <span className='mini-menu-dot'><p>. . .</p> </span>
