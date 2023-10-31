@@ -9,12 +9,13 @@
     padding: 20px 20px;
     color: white;
 }
-.menubar-black-text{
+
+.menubar-black-text {
     color: #2a2a2a;
 }
 
-.submenu-black-text .menu-parent .mini-menu .sub-menu div{
-    box-shadow: 0 10px 15px rgba(0,0,0,0.5);
+.submenu-black-text .menu-parent .mini-menu .sub-menu div {
+    box-shadow: 0 10px 15px rgba(0, 0, 0, 0.5);
 }
 
 .menu-link ul {
@@ -61,6 +62,7 @@
     text-align: center;
     /* display: none; */
 }
+
 .menu-parent:hover .mini-menu-dot p {
     scale: 1 1;
     height: 45px;
@@ -79,11 +81,12 @@
     visibility: hidden;
 }
 
-.menu-parent:hover .sub-menu{
+.menu-parent:hover .sub-menu {
     top: 35px;
     opacity: 1;
     visibility: visible;
 }
+
 .sub-menu div {
     position: relative;
     background: white;
@@ -94,7 +97,8 @@
     border-radius: 5px;
 
 }
-.profile-submenu{
+
+.profile-submenu {
     min-width: 150px !important;
 }
 
@@ -107,15 +111,16 @@
     width: 100%;
     transition: all 0.1s;
 }
+
 .sub-menu ul a:hover {
     color: #02af80;
 }
 
-.mobile-menu-icons{
+.mobile-menu-icons {
     display: none;
 }
 
-.profile-button{
+.profile-button {
     border: 2px solid white;
     padding: 3px 20px;
     border-radius: 20px;
@@ -123,11 +128,13 @@
     overflow: hidden;
     /* background: transparent; */
 }
-.span1{
+
+.span1 {
     transition: all 0.3s ease;
     background: transparent;
 }
-.span2{
+
+.span2 {
     position: absolute;
     background: white;
     top: -100%;
@@ -140,7 +147,8 @@
     justify-content: center;
     align-items: center;
 }
-.profile-button:hover .span2{
+
+.profile-button:hover .span2 {
     top: 0;
     /* z-index: -10; */
 }
@@ -152,12 +160,13 @@ Media query
 /*--------------------------------------------------------------------------
 For mobile:  
 ---------------------------------------------------------------------------*/
-@media only screen and (max-width:480px){
-    .menu-link ul{
+@media only screen and (max-width:640px) {
+    .menu-link ul {
         flex-direction: column;
     }
-    .menubar{
-        background: rgba(47, 64, 71, 0.94)   ;
+
+    .menubar {
+        background: rgba(47, 64, 71, 0.94);
         position: fixed;
         border: 3px solid gray;
         top: -500px;
@@ -166,15 +175,17 @@ For mobile:
         transition: all 0.3s ease;
         z-index: 100;
     }
-    .menubar.active{
+
+    .menubar.active {
         top: 5%;
         bottom: 5%;
     }
-    .mobile-menu-icons{
+
+    .mobile-menu-icons {
         border: 2px solid gray;
         border-radius: 2px;
         position: fixed;
-        top:   2%;
+        top: 2%;
         right: 4%;
         transition: all 0.3s ease;
         z-index: 60;
@@ -186,28 +197,35 @@ For mobile:
         align-items: center;
         z-index: 110;
     }
-    .mobile-menu-icons.active{
+
+    .mobile-menu-icons.active {
         transform: rotate(180deg);
-        top:   6%;
+        top: 6%;
         right: 7%;
         scale: 0.9;
         border-radius: 50%;
     }
-    .menuImgTwo{
+
+    .menuImgTwo {
         display: none;
     }
-    .mobile-menu-icons.active .menuImgOne{
-        /* opacity: 0; */
+
+    .mobile-menu-icons.active .menuImgOne {
         display: none;
     }
-    .mobile-menu-icons.active .menuImgTwo{
-        /* opacity: 0; */
+
+    .mobile-menu-icons.active .menuImgTwo {
         display: block;
     }
-    .mobile-menu-icons img{
+
+    .mobile-menu-icons img {
         width: 90%;
         cursor: pointer;
         transition: all 0.3s ease;
+    }
+
+    .menubar-black-text {
+        color: white;
     }
 }
 
