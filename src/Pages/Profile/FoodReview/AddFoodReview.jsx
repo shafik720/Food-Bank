@@ -29,14 +29,9 @@ const AddFoodReview = () => {
         setSuggestions(filteredSuggestions);
         // console.log(restaurant);
     }, [restaurant]);
-    const [lockFoodname, setLockFoodname] = useState(false);
+    
+    // --- when user will click to a suggested restaurent, this function will be triggered and it will set that suggested restaurant name as main restaurant name. 
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
-    function handleRestaurantName(e) {
-        // setRestaurant(e.target.value);
-        if (restaurant.length > 0) {
-            setLockRestaurantName(true);
-        }
-    }
     function handleClickSuggestedRestaurant(e) {
         setRestaurant(e);
         setLockRestaurantName(true);
