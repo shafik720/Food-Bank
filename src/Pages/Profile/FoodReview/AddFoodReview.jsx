@@ -26,11 +26,11 @@ const AddFoodReview = () => {
     const { data: foodByState } = useGetFoodByStateQuery(selectedState);
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
-        console.log('State = ', selectedState);
+        // console.log('State = ', selectedState);
         if (selectedCity == 0 && selectedState != 0 && selectedCountry !=0) {
             const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByState);
-            console.log('State triggered');
+            // console.log('State triggered');
         }
 
         if (selectedCity == 0 && selectedState == 0 && selectedCountry !=0) {

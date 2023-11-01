@@ -4,6 +4,8 @@ import { ClipLoader } from "react-spinners";
 import Select from 'react-select';
 
 import './Country.css';
+import { useDispatch, useSelector } from "react-redux";
+import { stateSelection } from "../../Redux/Features/state/stateSlice";
 
 
 const CountrySelection = ({ onCountryChange }) => {
@@ -12,6 +14,14 @@ const CountrySelection = ({ onCountryChange }) => {
     const { data, isLoading, isError, error, isSuccess } = useGetAllCountryQuery();
 
     const [countries, setCountries] = useState([]);
+
+    const stateStatus = useSelector(state => state.stateOfCountry);
+    console.log(stateStatus);
+    const dispatch = useDispatch();
+    function handleCountryChange(e){
+        onCountryChange(e);
+        // dispatch(stateSelection(e));
+    }
 
     // --- deciding what to render while fetching data from server with redux
     let content = null;
@@ -45,7 +55,8 @@ const CountrySelection = ({ onCountryChange }) => {
                         </div>
                     ),
                 }))}
-                onChange={(selectedOption) => onCountryChange(selectedOption.value)}
+                // onChange={(selectedOption) => onCountryChange(selectedOption.value)}
+                onChange={(selectedOption) => handleCountryChange(selectedOption.value)}
             />
         </div>
 

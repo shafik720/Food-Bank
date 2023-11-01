@@ -1,13 +1,20 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 
-const initialState = {} ;
+const initialState = {
+    selectedState : 0
+} ;
 
 const stateSlice = createSlice({
     name : 'countryState',
     initialState,
-    reducers : {}
+    reducers : {
+        stateSelection : (state, action) =>{
+            console.log(action.payload);
+            state.selectedState = action.payload ;
+        }
+    }
 })
 
-export const {} = stateSlice.actions ;
-export default stateSlice.reducers ; 
+export const {stateSelection} = stateSlice.actions ;
+export default stateSlice.reducer ; 
