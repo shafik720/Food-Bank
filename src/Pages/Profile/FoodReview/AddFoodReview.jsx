@@ -21,14 +21,14 @@ const AddFoodReview = () => {
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
 
-    // --- get food data by country 
+    // --- get food data by country for auto suggestion in the input field
     const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry))
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
-        const filteredSuggestions = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
-        setSuggestions(filteredSuggestions);
+        const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
+        setSuggestions(filteredSuggestionsByCountry);
         // console.log(restaurant);
-    }, [restaurant]);
+    }, [restaurant, foodByCountry]);
     
     // --- when user will click to a suggested restaurent, this function will be triggered and it will set that suggested restaurant name as main restaurant name. 
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
