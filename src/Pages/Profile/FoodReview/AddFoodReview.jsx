@@ -26,18 +26,21 @@ const AddFoodReview = () => {
     const { data: foodByState } = useGetFoodByStateQuery(selectedState);
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
-        if (selectedCity == 0) {
+        console.log('State = ', selectedState);
+        if (selectedCity == 0 && selectedState != 0 && selectedCountry !=0) {
             const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByState);
+            console.log('State triggered');
         }
 
-        if (selectedCity == 0 && selectedState == 0) {
+        if (selectedCity == 0 && selectedState == 0 && selectedCountry !=0) {
             const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByCountry);
+            console.log('Country triggered');
         }
         
         // console.log(restaurant);
-    }, [restaurant, foodByCountry, foodByState]);
+    }, [restaurant, foodByCountry, foodByState, selectedCity, selectedState, selectedCountry]);
 
     // --- when user will click to a suggested restaurent, this function will be triggered and it will set that suggested restaurant name as main restaurant name. 
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
