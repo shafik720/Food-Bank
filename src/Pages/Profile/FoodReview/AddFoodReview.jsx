@@ -3,7 +3,7 @@ import CountrySelection from "../../../Utilites/Country&CitySelection/CountrySel
 import CitySelection from "../../../Utilites/Country&CitySelection/CitySelection";
 import StateSelection from "../../../Utilites/Country&CitySelection/StateSelection";
 import RatingImpression from "../../../Utilites/RatingImpression/RatingImpression";
-import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery } from "../../../Redux/Features/food/foodApi";
+import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery, useGetFoodByStateQuery } from "../../../Redux/Features/food/foodApi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -22,14 +22,23 @@ const AddFoodReview = () => {
     const [foodname, setFoodname] = useState('');
 
     // --- get food data by country for auto suggestion in the input field
-    const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry))
+    const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry));
+    const { data: foodByState } = useGetFoodByStateQuery(selectedState);
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
-        const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
-        setSuggestions(filteredSuggestionsByCountry);
+        if (selectedCity == 0) {
+            const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
+            setSuggestions(filteredSuggestionsByState);
+        }
+
+        if (selectedCity == 0 && selectedState == 0) {
+            const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
+            setSuggestions(filteredSuggestionsByCountry);
+        }
+        
         // console.log(restaurant);
-    }, [restaurant, foodByCountry]);
-    
+    }, [restaurant, foodByCountry, foodByState]);
+
     // --- when user will click to a suggested restaurent, this function will be triggered and it will set that suggested restaurant name as main restaurant name. 
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
     function handleClickSuggestedRestaurant(e) {
@@ -85,7 +94,7 @@ const AddFoodReview = () => {
                         <span className="relative">
                             {!lockRestaurantName ?
                                 <input
-                                    
+
                                     onChange={e => setRestaurant(e.target.value)}
                                     value={restaurant}
                                     required
