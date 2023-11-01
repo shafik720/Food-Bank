@@ -8,6 +8,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faPlus } from "@fortawesome/free-solid-svg-icons";
+import { useSelector } from "react-redux";
 
 
 const AddFoodReview = () => {
@@ -17,13 +18,16 @@ const AddFoodReview = () => {
     const [selectedState, setSelectedState] = useState(0);
     const [selectedCity, setSelectedCity] = useState(0);
 
+    const stateStatus = useSelector(state => state.stateOfCountry);
+    const selectedStates = parseInt(stateStatus.selectedState) ;
+
     // --- get restaturant and food name
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
 
     // --- get food data by country for auto suggestion in the input field
     const { data: foodByCountry } = useGetFoodByCountryQuery(parseInt(selectedCountry));
-    const { data: foodByState } = useGetFoodByStateQuery(selectedState);
+    const { data: foodByState } = useGetFoodByStateQuery(selectedStates);
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
         // console.log('State = ', selectedState);
@@ -89,7 +93,7 @@ const AddFoodReview = () => {
                 <form action="" onSubmit={handleReviewSubmit}>
                     <CountrySelection onCountryChange={setSelectedCountry} />
                     <StateSelection countryId={selectedCountry} onStateChange={setSelectedState} />
-                    <CitySelection stateId={selectedState} onCityChange={setSelectedCity} />
+                    <CitySelection stateId={selectedStates} onCityChange={setSelectedCity} />
 
                     {/* --- Select Restaurant Name --- */}
                     <div className="lg:grid lg:grid-cols-2 justify-center items-center mt-8">

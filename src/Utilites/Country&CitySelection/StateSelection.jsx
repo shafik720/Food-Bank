@@ -1,10 +1,18 @@
 import { ClipLoader } from "react-spinners";
 import { useGetCountryStateQuery } from "../../Redux/Features/state/stateApi";
 import { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
+import { stateSelection } from "../../Redux/Features/state/stateSlice";
 
 const StateSelection = ({ countryId, onStateChange }) => {
     // --- disabling state option menu if user doesn't select any country
     const [option, setOption] = useState(true);
+
+    const dispatch = useDispatch();
+
+    function handleStateChange(e){
+        dispatch(stateSelection(e));
+    }
 
     useEffect(() => {
         if (countryId == 0) {
@@ -43,7 +51,8 @@ const StateSelection = ({ countryId, onStateChange }) => {
             <select
                 id="city"
                 disabled={option}
-                onChange={(e) => onStateChange(e.target.value)}
+                // onChange={(e) => onStateChange(e.target.value)}
+                onChange={(e) => handleStateChange(e.target.value)}
                 className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3 md:mt-0"
             >
                 <option value="0">Select State</option>

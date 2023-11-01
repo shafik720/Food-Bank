@@ -20,7 +20,7 @@ const CountrySelection = ({ onCountryChange }) => {
     const dispatch = useDispatch();
     function handleCountryChange(e){
         onCountryChange(e);
-        // dispatch(stateSelection(e));
+        dispatch(stateSelection(0));
     }
 
     // --- deciding what to render while fetching data from server with redux
