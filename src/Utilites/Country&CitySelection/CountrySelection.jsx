@@ -33,9 +33,9 @@ const CountrySelection = ({ onCountryChange }) => {
     if (!isLoading && !isError && data?.length > 0) {
         const sortedData = [...data].sort((a,b)=>a.country_name.localeCompare(b.country_name));
         content = <div className="country-selection-div lg:grid lg:grid-cols-2 text-center">
-            <label htmlFor="country" className="font-semibold text-slate-800  text-center">Select Country :</label>
+            <label htmlFor="country" className="font-semibold text-slate-800  ">Select Country :</label>
             <Select
-                className=" mt-3 md:mt-0"
+                className=" mt-3 md:mt-0 text-left"
                 options={sortedData.sort((a,b)=>a.country_name.localeCompare(b.country_name)).map((country) => ({
                     value: country.country_id,
                     label: (

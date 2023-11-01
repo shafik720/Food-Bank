@@ -90,7 +90,7 @@ const AddFoodReview = () => {
                         <span className="relative">
                             {!lockRestaurantName ?
                                 <input
-                                    // onBlur={e => handleRestaurantName(e)}
+                                    
                                     onChange={e => setRestaurant(e.target.value)}
                                     value={restaurant}
                                     required
