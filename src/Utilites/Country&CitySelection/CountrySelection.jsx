@@ -15,7 +15,6 @@ const CountrySelection = ({ onCountryChange }) => {
     const { data, isLoading, isError, error, isSuccess } = useGetAllCountryQuery();
 
     const countryStatus = useSelector(state => state.country);
-    console.log(countryStatus);
     
     const dispatch = useDispatch();
     function handleCountryChange(e){

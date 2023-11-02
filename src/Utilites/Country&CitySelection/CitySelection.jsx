@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { useGetCityListQuery } from "../../Redux/Features/city/cityApi";
 import { ClipLoader } from "react-spinners";
 import { useDispatch } from "react-redux";
+import { selectCity } from "../../Redux/Features/city/citySlice";
 
 const CitySelection = ({ stateId, onCityChange }) => {
     // --- disabling state option menu if user doesn't select any country
@@ -9,7 +10,12 @@ const CitySelection = ({ stateId, onCityChange }) => {
 
     // --- select city id to redux state
     const dispatch = useDispatch();
-    
+
+    const handleCityChange = (e) => {
+        onCityChange(e) ; 
+        dispatch(selectCity(e));
+    }
+
     useEffect(() => {
         if (stateId == 0) {
             setOption(true);
@@ -46,7 +52,7 @@ const CitySelection = ({ stateId, onCityChange }) => {
             <select
                 id="city"
                 disabled={option}
-                onChange={e => onCityChange(e.target.value)}
+                onChange={e => handleCityChange(e.target.value)}
                 className="block w-full p-2 bg-white border border-gray-300 rounded shadow mt-3"
             >
                 <option value="0">Select City</option>

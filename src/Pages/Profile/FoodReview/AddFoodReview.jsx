@@ -26,6 +26,11 @@ const AddFoodReview = () => {
     const countryStatus = useSelector(state => state.country);
     const selectedCountries = parseInt(countryStatus.selectedCountry)
 
+    //--- get which city is selected right now in redux state
+    const cityStatus = useSelector(state => state.city);
+    const selectedCities = parseInt(cityStatus.selectedCity);
+    console.log(selectedCities);
+
     // --- get restaturant and food name
     const [restaurant, setRestaurant] = useState('');
     const [foodname, setFoodname] = useState('');
@@ -35,21 +40,21 @@ const AddFoodReview = () => {
     const { data: foodByState } = useGetFoodByStateQuery(selectedStates);// --- get food data by state
     const [suggestions, setSuggestions] = useState([]);
     useEffect(() => {
-        if (selectedCity == 0 && selectedStates != 0 && selectedCountries != 0) {
+        if (selectedCities == 0 && selectedStates != 0 && selectedCountries != 0) {
             // --- this will be triggered when user will select country & state (not city yet)
             const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByState);
             // console.log('State triggered !');
         }
 
-        if (selectedCity == 0 && selectedStates == 0 && selectedCountries != 0) {
+        if (selectedCities == 0 && selectedStates == 0 && selectedCountries != 0) {
             // --- this will be triggered when user will select only country (not state & city yet)
             const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByCountry);
             // console.log('Country triggered !');
         }
 
-    }, [restaurant, foodByCountry, foodByState, selectedCity, selectedStates, selectedCountries]);
+    }, [restaurant, foodByCountry, foodByState, selectedCities, selectedStates, selectedCountries]);
 
     // --- when user will click to a suggested restaurent, this function will be triggered and it will set that suggested restaurant name as main restaurant name. 
     const [lockRestaurantName, setLockRestaurantName] = useState(false);
@@ -79,7 +84,7 @@ const AddFoodReview = () => {
         addFoodReview({
             countryId: selectedCountries,
             stateId: selectedStates,
-            cityId: selectedCity,
+            cityId: selectedCities,
             restaurant,
             foodname,
             rating,
