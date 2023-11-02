@@ -7,6 +7,7 @@ import './Country.css';
 import { useDispatch, useSelector } from "react-redux";
 import { stateSelection } from "../../Redux/Features/state/stateSlice";
 import { selectCountry } from "../../Redux/Features/country/countrySlice";
+import { selectCity } from "../../Redux/Features/city/citySlice";
 
 
 const CountrySelection = ({ onCountryChange }) => {
@@ -20,6 +21,7 @@ const CountrySelection = ({ onCountryChange }) => {
     function handleCountryChange(e){
         onCountryChange(e);
         dispatch(stateSelection(0)); // --- resetting State's value with redux 
+        dispatch(selectCity(0)); // --- resetting State's value with redux 
         dispatch(selectCountry(e));  // --- selecting Country's value with redux
     }
 

@@ -3,6 +3,7 @@ import { useGetCountryStateQuery } from "../../Redux/Features/state/stateApi";
 import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { stateSelection } from "../../Redux/Features/state/stateSlice";
+import { selectCity } from "../../Redux/Features/city/citySlice";
 
 const StateSelection = ({ countryId, onStateChange }) => {
     // --- disabling state option menu if user doesn't select any country
@@ -12,6 +13,7 @@ const StateSelection = ({ countryId, onStateChange }) => {
 
     function handleStateChange(e){
         dispatch(stateSelection(e));
+        dispatch(selectCity(0));
     }
 
     useEffect(() => {

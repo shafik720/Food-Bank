@@ -32,11 +32,17 @@ export const foodApi = apiSlice.injectEndpoints({
         getFoodByCountry : builder.query({
             query : (countryCode) => `/review/getFoodByCountry/${countryCode}`
         }),
-        /* ------  Get food item's data by country from database ------- */
+        
+        /* ------  Get food item's data by states from database ------- */
         getFoodByState : builder.query({
             query : (stateCode) => `/review/getFoodByState/${stateCode}`
+        }),
+
+        /* ------  Get food item's data by states from database ------- */
+        getFoodBycity : builder.query({
+            query : (cityCode) => `/review/getFoodByCity/${cityCode}`
         }),
     })
 })
 
-export const {useAddNewFoodReviewMutation, useGetAllFoodReviewQuery, useGetFoodByCountryQuery, useGetFoodByStateQuery  } = foodApi
+export const {useAddNewFoodReviewMutation, useGetAllFoodReviewQuery, useGetFoodByCountryQuery, useGetFoodByStateQuery, useGetFoodBycityQuery  } = foodApi

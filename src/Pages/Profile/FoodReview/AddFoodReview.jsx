@@ -3,7 +3,7 @@ import CountrySelection from "../../../Utilites/Country&CitySelection/CountrySel
 import CitySelection from "../../../Utilites/Country&CitySelection/CitySelection";
 import StateSelection from "../../../Utilites/Country&CitySelection/StateSelection";
 import RatingImpression from "../../../Utilites/RatingImpression/RatingImpression";
-import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery, useGetFoodByStateQuery } from "../../../Redux/Features/food/foodApi";
+import { useAddNewFoodReviewMutation, useGetFoodByCountryQuery, useGetFoodByStateQuery, useGetFoodBycityQuery } from "../../../Redux/Features/food/foodApi";
 import { useAuthState } from "react-firebase-hooks/auth";
 import { auth } from "../../../Utilites/Firebase Auth/firebase.inti";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -29,7 +29,7 @@ const AddFoodReview = () => {
     //--- get which city is selected right now in redux state
     const cityStatus = useSelector(state => state.city);
     const selectedCities = parseInt(cityStatus.selectedCity);
-    console.log(selectedCities);
+    // console.log(selectedCities);
 
     // --- get restaturant and food name
     const [restaurant, setRestaurant] = useState('');
@@ -38,20 +38,23 @@ const AddFoodReview = () => {
     // --- get food data by country,state, city for auto suggestion in the input field
     const { data: foodByCountry } = useGetFoodByCountryQuery(selectedCountries); // --- get food data by country
     const { data: foodByState } = useGetFoodByStateQuery(selectedStates);// --- get food data by state
+    const { data: foodByCity } = useGetFoodBycityQuery(selectedCities);// --- get food data by state
+    // console.log(foodByCity);
     const [suggestions, setSuggestions] = useState([]);
+
     useEffect(() => {
         if (selectedCities == 0 && selectedStates != 0 && selectedCountries != 0) {
             // --- this will be triggered when user will select country & state (not city yet)
             const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByState);
-            // console.log('State triggered !');
+            console.log('State triggered !');
         }
 
         if (selectedCities == 0 && selectedStates == 0 && selectedCountries != 0) {
             // --- this will be triggered when user will select only country (not state & city yet)
             const filteredSuggestionsByCountry = foodByCountry?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
             setSuggestions(filteredSuggestionsByCountry);
-            // console.log('Country triggered !');
+            console.log('Country triggered !');
         }
 
     }, [restaurant, foodByCountry, foodByState, selectedCities, selectedStates, selectedCountries]);
