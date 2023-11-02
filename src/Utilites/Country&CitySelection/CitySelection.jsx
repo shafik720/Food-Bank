@@ -1,11 +1,15 @@
 import { useEffect, useState } from "react";
 import { useGetCityListQuery } from "../../Redux/Features/city/cityApi";
 import { ClipLoader } from "react-spinners";
+import { useDispatch } from "react-redux";
 
 const CitySelection = ({ stateId, onCityChange }) => {
     // --- disabling state option menu if user doesn't select any country
     const [option, setOption] = useState(true);
 
+    // --- select city id to redux state
+    const dispatch = useDispatch();
+    
     useEffect(() => {
         if (stateId == 0) {
             setOption(true);
