@@ -8,8 +8,12 @@ const initialState = {
 const countrySlice = createSlice({
     name : 'country' , 
     initialState , 
-    reducers : {}
+    reducers : {
+        selectCountry : (state, action) => {
+            state.selectedCountry = action.payload
+        }
+    }
 })
 
-export const {} = countrySlice.actions ; 
+export const {selectCountry} = countrySlice.actions ; 
 export default countrySlice.reducer ; 

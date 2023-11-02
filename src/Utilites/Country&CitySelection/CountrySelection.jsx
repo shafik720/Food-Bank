@@ -6,6 +6,7 @@ import Select from 'react-select';
 import './Country.css';
 import { useDispatch, useSelector } from "react-redux";
 import { stateSelection } from "../../Redux/Features/state/stateSlice";
+import { selectCountry } from "../../Redux/Features/country/countrySlice";
 
 
 const CountrySelection = ({ onCountryChange }) => {
@@ -13,14 +14,14 @@ const CountrySelection = ({ onCountryChange }) => {
     // --- get all country list from mongodb with redux
     const { data, isLoading, isError, error, isSuccess } = useGetAllCountryQuery();
 
-    const [countries, setCountries] = useState([]);
-
-    const stateStatus = useSelector(state => state.stateOfCountry);
+    const countryStatus = useSelector(state => state.country);
+    console.log(countryStatus);
     
     const dispatch = useDispatch();
     function handleCountryChange(e){
         onCountryChange(e);
-        dispatch(stateSelection(0));
+        dispatch(stateSelection(0)); // --- resetting State's value with redux 
+        dispatch(selectCountry(e));  // --- selecting Country's value with redux
     }
 
     // --- deciding what to render while fetching data from server with redux
