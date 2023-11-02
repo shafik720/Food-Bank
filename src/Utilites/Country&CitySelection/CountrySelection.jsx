@@ -16,7 +16,7 @@ const CountrySelection = ({ onCountryChange }) => {
     const [countries, setCountries] = useState([]);
 
     const stateStatus = useSelector(state => state.stateOfCountry);
-    console.log(stateStatus);
+    
     const dispatch = useDispatch();
     function handleCountryChange(e){
         onCountryChange(e);

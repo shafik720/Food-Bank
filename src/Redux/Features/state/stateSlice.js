@@ -10,7 +10,6 @@ const stateSlice = createSlice({
     initialState,
     reducers : {
         stateSelection : (state, action) =>{
-            console.log(action.payload);
             state.selectedState = action.payload ;
         }
     }
