@@ -43,6 +43,13 @@ const AddFoodReview = () => {
     const [suggestions, setSuggestions] = useState([]);
 
     useEffect(() => {
+        if (selectedCities != 0 && selectedStates != 0 && selectedCountries != 0) {
+            // --- this will be triggered when user will select country, state, city (all 3 fields are fullfilled)
+            const filteredSuggestionsByCity = foodByCity?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
+            setSuggestions(filteredSuggestionsByCity);
+            console.log('City triggered !');
+        }
+
         if (selectedCities == 0 && selectedStates != 0 && selectedCountries != 0) {
             // --- this will be triggered when user will select country & state (not city yet)
             const filteredSuggestionsByState = foodByState?.filter(item => item.data.restaurant.toLowerCase().includes(restaurant.toLowerCase()));
